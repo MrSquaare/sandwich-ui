@@ -1,6 +1,6 @@
 {
   "name": "@mrsquaare/sandwich-ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/sandwich-ui.cjs",
   "module": "./dist/sandwich-ui.js",
