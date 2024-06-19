@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "@sandwich-ui/root",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build --continue",
+    "preview": "turbo preview",
+    "lint": "turbo lint --continue",
+    "lint:fix": "turbo lint:fix --continue",
+    "clean": "turbo clean --continue && rimraf node_modules/.cache/ .turbo/ **/.turbo/",
+    "check-updates": "npm-check-updates -ws --root",
+    "do-upgrades": "npm-check-updates -ws --root --upgrade",
+    "version": "changeset version && pnpm install",
+    "publish": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.5",
+    "npm-check-updates": "^16.14.20",
+    "rimraf": "^5.0.7",
+    "turbo": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@9.4.0"
+}

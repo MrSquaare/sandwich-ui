@@ -1,0 +1,78 @@
+name: Storybook Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/storybook-pull-request.yml"
+      - "storybook/**"
+      - "storybook.Dockerfile"
+      - "sandwich-ui/**"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: Setup
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    name: Build
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+      - name: Build
+        run: pnpm build --filter @sandwich-ui/storybook
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    name: Analyze
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+      - name: Lint
+        run: pnpm lint --filter @sandwich-ui/storybook
+
+  docker:
+    runs-on: ubuntu-latest
+    name: Build Docker Image
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          file: ./storybook.Dockerfile
+          tags: image:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

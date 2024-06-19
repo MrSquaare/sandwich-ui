@@ -1,0 +1,24 @@
+@import "@mrsquaare/sandwich-ui/style.css";
+
+body:has(#storybook-root:not([hidden])) {
+  background-color: var(--colors-white);
+}
+
+body:has(#storybook-docs:not([hidden])) {
+  .docs-story{
+    background-color: var(--colors-white);
+  }
+}
+
+
+.dark {
+  body:has(#storybook-root:not([hidden])) {
+    background-color: var(--colors-black);
+  }
+
+  body:has(#storybook-docs:not([hidden])) {
+    .docs-story{
+      background-color: var(--colors-black);
+    }
+  }
+}

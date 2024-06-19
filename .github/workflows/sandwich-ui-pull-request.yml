@@ -1,0 +1,54 @@
+name: Sandwich UI Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/sandwich-ui-pull-request.yml"
+      - "sandwich-ui/**"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    name: Setup
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    name: Build
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+      - name: Build
+        run: pnpm build --filter @mrsquaare/sandwich-ui
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    name: Analyze
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup environment
+        uses: ./.github/actions/setup-env
+
+      - name: Lint
+        run: pnpm lint --filter @mrsquaare/sandwich-ui
