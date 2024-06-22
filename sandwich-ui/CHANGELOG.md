@@ -1,6 +1,6 @@
 # @mrsquaare/sandwich-ui
 
-## 0.1.0
+## 0.3.0
 
 ### Minor Changes
 
