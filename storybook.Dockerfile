@@ -20,7 +20,6 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 FROM base AS build
 
-COPY ./.eslintrc.js ./.eslintrc.js
 COPY ./turbo.json ./turbo.json
 COPY ./sandwich-ui ./sandwich-ui
 COPY ./storybook ./storybook

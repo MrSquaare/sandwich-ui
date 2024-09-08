@@ -32,8 +32,7 @@
       "cache": false,
       "outputs": [
         "dist/",
-        "build",
-        ".docusaurus/",
+        ".astro/",
         "storybook-static/",
         "node_modules/.cache/"
       ]

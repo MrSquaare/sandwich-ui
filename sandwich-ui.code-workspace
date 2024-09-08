@@ -5,16 +5,16 @@
       "path": "."
     },
     {
-      "name": "docs",
-      "path": "./docs"
-    },
-    {
       "name": "sandwich-ui",
       "path": "./sandwich-ui"
     },
     {
       "name": "storybook",
       "path": "./storybook"
+    },
+    {
+      "name": "docs",
+      "path": "./docs"
     },
   ]
 }

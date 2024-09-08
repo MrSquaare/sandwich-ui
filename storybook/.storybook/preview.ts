@@ -1,12 +1,12 @@
 import "./preview.css";
 
+import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
-import { withThemeByClassName} from "@storybook/addon-themes"
 
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      disable: true
+      disable: true,
     },
     controls: {
       matchers: {
@@ -21,7 +21,7 @@ const preview: Preview = {
       themes: {
         light: "light",
         dark: "dark",
-      }
+      },
     }),
   ],
 };
