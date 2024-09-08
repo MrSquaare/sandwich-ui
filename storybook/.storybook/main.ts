@@ -1,7 +1,8 @@
 import { dirname, join } from "path";
+
 import type { StorybookConfig } from "@storybook/react-vite";
 
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string) {
   return dirname(require.resolve(join(value, "package.json")));
 }
 
@@ -18,13 +19,6 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {},
-  typescript: {
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    }
-  }
 };
 
 export default config;
