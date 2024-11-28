@@ -1,12 +1,13 @@
-name: Docs Pull Request
+name: "@sandwich-ui/react Storybook Pull Request"
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - ".github/workflows/docs-pull-request.yml"
-      - "docs/**"
+      - ".github/workflows/storybook-react-pull-request.yml"
+      - "packages/react-storybook/**"
+      - "packages/react/**"
 
 jobs:
   setup:
@@ -35,7 +36,7 @@ jobs:
         uses: ./.github/actions/setup-env
 
       - name: Build
-        run: pnpm build --filter @sandwich-ui/docs
+        run: pnpm build --filter @sandwich-ui/react-storybook
 
   lint:
     needs: setup
@@ -51,7 +52,7 @@ jobs:
         uses: ./.github/actions/setup-env
 
       - name: Lint
-        run: pnpm lint --filter @sandwich-ui/docs
+        run: pnpm lint --filter @sandwich-ui/react-storybook
 
   docker:
     runs-on: ubuntu-latest
@@ -70,7 +71,7 @@ jobs:
         with:
           context: .
           push: false
-          file: ./docs/Dockerfile
+          file: ./packages/react-storybook/Dockerfile
           tags: image:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

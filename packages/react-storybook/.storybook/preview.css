@@ -1,4 +1,4 @@
-@import "@mrsquaare/sandwich-ui/style.css";
+@import "@sandwich-ui/react/style.css";
 
 body:has(#storybook-root:not([hidden])) {
   background-color: #ffffff;

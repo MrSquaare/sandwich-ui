@@ -3,7 +3,7 @@ import {
   AvatarFallback,
   AvatarImage,
   AvatarRecipe,
-} from "@mrsquaare/sandwich-ui";
+} from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

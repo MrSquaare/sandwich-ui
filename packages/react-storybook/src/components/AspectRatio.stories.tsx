@@ -1,4 +1,4 @@
-import { AspectRatio } from "@mrsquaare/sandwich-ui";
+import { AspectRatio } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

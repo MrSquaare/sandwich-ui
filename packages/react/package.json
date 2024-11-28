@@ -1,5 +1,5 @@
 {
-  "name": "@mrsquaare/sandwich-ui",
+  "name": "@sandwich-ui/react",
   "version": "0.3.1",
   "type": "module",
   "main": "./dist/index.cjs",

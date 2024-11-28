@@ -1,4 +1,4 @@
-import { Button, ButtonRecipe } from "@mrsquaare/sandwich-ui";
+import { Button, ButtonRecipe } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
