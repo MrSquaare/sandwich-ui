@@ -3,7 +3,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 
-import rootConfig from "../eslint.config.mjs";
+import rootConfig from "../../eslint.config.mjs";
 
 export default [
   { ignores: ["dist", "src/styled-system"] },

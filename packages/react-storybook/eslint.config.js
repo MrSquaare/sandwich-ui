@@ -1,13 +1,13 @@
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-// import storybook from "eslint-plugin-storybook";
+import storybook from "eslint-plugin-storybook";
 import globals from "globals";
 
-import rootConfig from "../eslint.config.mjs";
+import rootConfig from "../../eslint.config.mjs";
 
 export default [
-  { ignores: ["storybook-static"] },
+  { ignores: ["storybook-static", "!.storybook"] },
   ...rootConfig,
   {
     ...react.configs.flat.recommended,
@@ -37,4 +37,5 @@ export default [
       ],
     },
   },
+  ...storybook.configs["flat/recommended"],
 ];
