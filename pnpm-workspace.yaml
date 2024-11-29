@@ -1,4 +1,3 @@
 packages:
-  - "sandwich-ui"
   - "docs"
-  - "storybook"
+  - "packages/*"

@@ -1,8 +1,4 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@mrsquaare/sandwich-ui";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

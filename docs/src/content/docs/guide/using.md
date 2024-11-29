@@ -4,7 +4,7 @@ description: How to use Sandwich UI
 ---
 
 ```jsx
-import { Button } from "@mrsquaare/sandwich-ui";
+import { Button } from "@sandwich-ui/react";
 
 function Example() {
   return (

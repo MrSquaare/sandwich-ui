@@ -12,8 +12,8 @@ RUN corepack enable pnpm
 WORKDIR ${APP_DIRECTORY}
 
 COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
-COPY ./sandwich-ui/package.json ./sandwich-ui/
-COPY ./storybook/package.json ./storybook/
+COPY ./packages/react/package.json ./packages/react/
+COPY ./packages/react-storybook/package.json ./packages/react-storybook/
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
@@ -21,14 +21,14 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 FROM base AS build
 
 COPY ./turbo.json ./turbo.json
-COPY ./sandwich-ui ./sandwich-ui
-COPY ./storybook ./storybook
+COPY ./packages/react ./packages/react
+COPY ./packages/react-storybook ./packages/react-storybook
 RUN pnpm build
 
 
 FROM base
 
-COPY --from=build ${APP_DIRECTORY}/storybook/storybook-static/ ./storybook/storybook-static/
+COPY --from=build ${APP_DIRECTORY}/packages/react-storybook/storybook-static/ ./packages/react-storybook/storybook-static/
 
 ENV NODE_ENV="production"
 
@@ -40,4 +40,4 @@ EXPOSE 4173
 
 ENTRYPOINT ["dumb-init", "--"]
 
-CMD ["pnpm", "-F", "@sandwich-ui/storybook", "preview", "--host"]
+CMD ["pnpm", "-F", "@sandwich-ui/react-storybook", "preview", "--host"]

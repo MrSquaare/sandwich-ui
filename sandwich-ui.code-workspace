@@ -5,12 +5,8 @@
       "path": "."
     },
     {
-      "name": "sandwich-ui",
-      "path": "./sandwich-ui"
-    },
-    {
-      "name": "storybook",
-      "path": "./storybook"
+      "name": "packages",
+      "path": "./packages"
     },
     {
       "name": "docs",

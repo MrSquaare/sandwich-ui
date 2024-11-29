@@ -29,19 +29,19 @@ It is composed of three projects:
 
 ```sh
 # npm
-npm install @mrsquaare/sandwich-ui
+npm install @sandwich-ui/react
 
 # yarn
-yarn add @mrsquaare/sandwich-ui
+yarn add @sandwich-ui/react
 
 # pnpm
-pnpm install @mrsquaare/sandwich-ui
+pnpm install @sandwich-ui/react
 ```
 
 ## Using
 
 ```jsx
-import { Button } from "@mrsquaare/sandwich-ui";
+import { Button } from "@sandwich-ui/react";
 
 function Example() {
   return (
