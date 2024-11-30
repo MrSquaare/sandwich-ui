@@ -1,4 +1,4 @@
-@import "@sandwich-ui/react/style.css";
+@layer reset, base, tokens, recipes, utilities;
 
 body:has(#storybook-root:not([hidden])) {
   background-color: #ffffff;

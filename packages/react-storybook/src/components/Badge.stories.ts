@@ -1,4 +1,5 @@
-import { Badge, BadgeRecipe } from "@sandwich-ui/react";
+import { BadgeRecipe } from "@sandwich-ui/core/recipes";
+import { Badge } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

@@ -4,8 +4,9 @@
   "version": "0.1.1",
   "type": "module",
   "scripts": {
+    "predev": "panda codegen",
     "dev": "storybook dev -p 6006",
-    "prebuild": "rimraf storybook-static/",
+    "prebuild": "rimraf storybook-static/ && panda codegen",
     "build": "storybook build",
     "preview": "vite preview --outDir storybook-static/",
     "lint": "eslint .",
@@ -13,11 +14,13 @@
     "clean": "rimraf storybook-static/ node_modules/.cache/"
   },
   "dependencies": {
+    "@sandwich-ui/core": "workspace:*",
     "@sandwich-ui/react": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@pandacss/dev": "^0.48.0",
     "@storybook/addon-essentials": "^8.4.5",
     "@storybook/addon-interactions": "^8.4.5",
     "@storybook/addon-links": "^8.4.5",
@@ -39,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-storybook": "^0.11.1",
     "globals": "^15.12.0",
+    "postcss": "^8.4.49",
     "rimraf": "^6.0.1",
     "storybook": "^8.4.5",
     "typescript": "^5.7.2",
