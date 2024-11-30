@@ -1,21 +1,12 @@
 import { ark } from "@ark-ui/react";
+import { cx } from "@sandwich-ui/core/css";
+import {
+  NavigationListRecipe,
+  NavigationRecipe,
+} from "@sandwich-ui/core/recipes";
 import { ComponentRef, forwardRef } from "react";
 
-import { cva, cx } from "../styled-system/css";
 import { ExtendedComponentProps } from "../utilities/react";
-
-export const NavigationRecipe = cva({
-  base: {
-    display: "flex",
-    flexDirection: "row",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 2,
-    maxW: "full",
-    zIndex: 10,
-  },
-});
 
 export type NavigationProps = ExtendedComponentProps<typeof ark.nav>;
 export type NavigationRef = ComponentRef<typeof ark.nav>;
@@ -35,17 +26,6 @@ export const Navigation = forwardRef<NavigationRef, NavigationProps>(
 );
 
 Navigation.displayName = "Navigation";
-
-export const NavigationListRecipe = cva({
-  base: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    spaceX: 1,
-    listStyleType: "none",
-  },
-});
 
 export type NavigationListProps = ExtendedComponentProps<typeof ark.ul>;
 export type NavigationListRef = ComponentRef<typeof ark.ul>;

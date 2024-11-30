@@ -15,23 +15,20 @@
       "require": "./dist/panda-preset/index.cjs",
       "import": "./dist/panda-preset/index.js",
       "types": "./dist/panda-preset/index.d.ts"
-    },
-    "./style.css": "./dist/style.css"
+    }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "predev": "panda codegen",
     "dev": "vite build --watch",
     "prebuild": "rimraf dist/ && panda codegen",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && panda ship -o dist/panda.buildinfo.json",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "clean": "rimraf dist/ src/styled-system/ node_modules/.cache/"
   },
   "dependencies": {
-    "@ark-ui/react": "^4.4.4"
+    "@ark-ui/react": "^4.4.4",
+    "@sandwich-ui/core": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.3.1",
@@ -51,7 +48,6 @@
     "eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
-    "postcss": "^8.4.49",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.16.0",

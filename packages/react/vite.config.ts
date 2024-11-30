@@ -9,7 +9,6 @@ export default defineConfig({
     lib: {
       entry: {
         index: "./src/index.ts",
-        "panda-preset/index": "./src/panda-preset/index.ts",
       },
       formats: ["cjs", "es"],
     },
@@ -20,6 +19,7 @@ export default defineConfig({
         "react/jsx-runtime",
         "@ark-ui/react",
         "@pandacss/dev",
+        /^@sandwich-ui\/core\/.*/,
       ],
     },
   },
