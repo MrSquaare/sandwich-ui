@@ -1,6 +1,5 @@
 {
   "name": "@sandwich-ui/core",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -36,8 +35,7 @@
       "require": "./dist/recipes/index.cjs",
       "import": "./dist/recipes/index.js",
       "types": "./dist/recipes/index.d.ts"
-    },
-    "./style.css": "./dist/style.css"
+    }
   },
   "scripts": {
     "predev": "panda codegen",
@@ -50,7 +48,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.48.0",
-    "eslint": "^9.15.0",
+    "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import-x": "^4.4.3",
