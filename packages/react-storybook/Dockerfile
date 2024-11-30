@@ -1,43 +1,33 @@
-FROM node:20-alpine AS base
+FROM node:22-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
-ENV APP_DIRECTORY="/usr/src/app"
 
 ENV PATH="${PATH}:${PNPM_HOME}"
-ENV PATH="${PATH}:${APP_DIRECTORY}/node_modules/.bin/"
-ENV PATH="${PATH}:${APP_DIRECTORY}/storybook/node_modules/.bin/"
+ENV TURBO_TELEMETRY_DISABLED="1"
+ENV STORYBOOK_DISABLE_TELEMETRY="1"
 
-RUN corepack enable pnpm
-
-WORKDIR ${APP_DIRECTORY}
+WORKDIR "/usr/src/app"
 
 COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+RUN corepack enable pnpm
+COPY ./packages/core/package.json ./packages/core/
 COPY ./packages/react/package.json ./packages/react/
 COPY ./packages/react-storybook/package.json ./packages/react-storybook/
-
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 
 FROM base AS build
 
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+
 COPY ./turbo.json ./turbo.json
+COPY ./packages/core ./packages/core
 COPY ./packages/react ./packages/react
 COPY ./packages/react-storybook ./packages/react-storybook
 RUN pnpm build
 
 
-FROM base
+FROM nginx:stable-alpine AS production
 
-COPY --from=build ${APP_DIRECTORY}/packages/react-storybook/storybook-static/ ./packages/react-storybook/storybook-static/
+COPY --from=build /usr/src/app/packages/react-storybook/storybook-static/ /usr/share/nginx/html
 
-ENV NODE_ENV="production"
-
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
-
-RUN apk add --no-cache dumb-init
-
-EXPOSE 4173
-
-ENTRYPOINT ["dumb-init", "--"]
-
-CMD ["pnpm", "-F", "@sandwich-ui/react-storybook", "preview", "--host"]
+EXPOSE 80

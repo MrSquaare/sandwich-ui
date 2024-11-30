@@ -3,7 +3,7 @@
   "name": "@sandwich-ui/root",
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build --continue",
+    "build": "turbo build",
     "preview": "turbo preview",
     "lint": "turbo lint --continue",
     "lint:fix": "turbo lint:fix --continue",
@@ -23,5 +23,5 @@
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@9.14.3"
+  "packageManager": "pnpm@9.14.4"
 }

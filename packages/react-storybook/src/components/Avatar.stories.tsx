@@ -1,9 +1,5 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  AvatarRecipe,
-} from "@sandwich-ui/react";
+import { AvatarRecipe } from "@sandwich-ui/core/recipes";
+import { Avatar, AvatarFallback, AvatarImage } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

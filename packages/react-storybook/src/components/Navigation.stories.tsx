@@ -53,8 +53,8 @@ export const Default: Story = {
             </Avatar>
           </MenuTrigger>
           <MenuContent>
-            <MenuItem id={"item-1"}>Profile</MenuItem>
-            <MenuItem id={"item-2"}>Sign out</MenuItem>
+            <MenuItem value={"profile"}>Profile</MenuItem>
+            <MenuItem value={"sign-out"}>Sign out</MenuItem>
           </MenuContent>
         </Menu>
       </NavigationList>

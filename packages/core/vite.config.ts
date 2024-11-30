@@ -1,6 +1,6 @@
-import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,25 +8,19 @@ export default defineConfig({
     outDir: "dist",
     lib: {
       entry: {
-        index: "./src/index.ts",
+        "preset/index": "./src/preset/index.ts",
+        "recipes/index": "./src/recipes/index.ts",
       },
       formats: ["cjs", "es"],
     },
     rollupOptions: {
-      external: [
-        "react",
-        "react-dom",
-        "react/jsx-runtime",
-        "@ark-ui/react",
-        "@pandacss/dev",
-        /^@sandwich-ui\/core\/.*/,
-      ],
+      external: ["@pandacss/dev"],
     },
   },
   plugins: [
-    react(),
     dts({
       copyDtsFiles: true,
     }),
+    tsconfigPaths(),
   ],
 });

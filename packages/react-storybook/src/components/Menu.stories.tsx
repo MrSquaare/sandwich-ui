@@ -28,13 +28,13 @@ export const Default: Story = {
         <Button>Menu</Button>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem id={"item-1"} onClick={fn()}>
+        <MenuItem onClick={fn()} value={"item-1"}>
           Item 1
         </MenuItem>
-        <MenuItem id={"item-2"} onClick={fn()}>
+        <MenuItem onClick={fn()} value={"item-2"}>
           Item 2
         </MenuItem>
-        <MenuItem id={"item-3"} onClick={fn()}>
+        <MenuItem onClick={fn()} value={"item-3"}>
           Item 3
         </MenuItem>
       </MenuContent>
