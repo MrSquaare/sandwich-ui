@@ -3,13 +3,17 @@ import { createNormalizer } from "@zag-js/types";
 import { AnyProps } from "../../types/props";
 
 const propMap: Record<string, string> = {
-  htmlFor: "for",
   className: "class",
   defaultValue: "value",
   defaultChecked: "checked",
+  htmlFor: "for",
+  onChange: "onInput",
+  onDoubleClick: "onDblClick",
+  onFocus: "onFocusIn",
+  onBlur: "onFocusOut",
 };
 
-const processStyle = (style: object) => {
+const stringifyStyle = (style: object) => {
   return Object.entries(style).reduce((acc, [key, value]) => {
     if (value === null || value === undefined) return acc;
 
@@ -25,13 +29,13 @@ const processStyle = (style: object) => {
 
 export const normalizeProps = createNormalizer((props) => {
   const normalizedProps = Object.entries(props).reduce((acc, [key, value]) => {
-    const prop = propMap[key] || key;
+    key = propMap[key] || key;
 
-    if (prop === "style") {
-      value = processStyle(value);
+    if (key === "style" && typeof value === "object") {
+      value = stringifyStyle(value);
     }
 
-    acc[prop] = value;
+    acc[key] = value;
 
     return acc;
   }, {} as AnyProps);

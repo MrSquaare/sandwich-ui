@@ -7,18 +7,13 @@ import { AnyProps } from "../types/props";
 import { normalizeProps } from "../utilities/zag/normalize-props";
 import { spreadProps } from "../utilities/zag/spread-props";
 
-export type TooltipMachine = ReturnType<typeof tooltip.machine>;
-
-class TooltipContext {
-  constructor(
-    public machine: TooltipMachine,
-    public api: tooltip.Api,
-  ) {}
-}
-
-const tooltipContextKey = Symbol("tooltipContext");
-const tooltipContext = createContext<TooltipContext | undefined>(
-  tooltipContextKey,
+const tooltipServiceContextKey = Symbol("tooltipServiceContext");
+const tooltipServiceContext = createContext<tooltip.Service | undefined>(
+  tooltipServiceContextKey,
+);
+const tooltipApiContextKey = Symbol("tooltipApiContext");
+const tooltipApiContext = createContext<tooltip.Api | undefined>(
+  tooltipApiContextKey,
 );
 
 @customElement("sw-tooltip")
@@ -28,38 +23,48 @@ export class Tooltip extends LitElement {
   @property({ type: String })
   id!: string;
 
-  @provide({ context: tooltipContext })
-  context?: TooltipContext;
+  @provide({ context: tooltipServiceContext })
+  service?: tooltip.Service;
+
+  @provide({ context: tooltipApiContext })
+  api?: tooltip.Api;
 
   connectedCallback(): void {
     super.connectedCallback();
 
-    const machine = tooltip.machine({ id: this.id, open: true });
-    const api = tooltip.connect(machine.state, machine.send, normalizeProps);
+    const service = this.#initService({ id: this.id });
+    const api = this.#initApi(service);
 
-    this.context = new TooltipContext(machine, api);
-    this.context.machine.start();
-    this.context.machine.subscribe(() => {
-      if (!this.context) return;
-
-      this.context.api = tooltip.connect(
-        this.context.machine.state,
-        this.context.machine.send,
-        normalizeProps,
-      );
+    service.subscribe(() => {
+      this.api = this.#initApi(service);
     });
+
+    this.service = service;
+    this.api = api;
+
+    service.start();
   }
 
   disconnectedCallback(): void {
     super.disconnectedCallback();
 
-    this.context?.machine.stop();
-    this.context = undefined;
+    this.service?.stop();
+
+    this.api = undefined;
+    this.service = undefined;
   }
 
   render() {
     return html`<slot></slot>`;
   }
+
+  #initService = (context: tooltip.Context) => {
+    return tooltip.machine(context);
+  };
+
+  #initApi = (service: tooltip.Service) => {
+    return tooltip.connect(service.state, service.send, normalizeProps);
+  };
 }
 
 @customElement("sw-tooltip-trigger")
@@ -68,36 +73,24 @@ export class TooltipTrigger extends LitElement {
 
   #previousProps?: AnyProps;
 
-  @consume({ context: tooltipContext })
-  context?: TooltipContext;
-
-  connectedCallback(): void {
-    super.connectedCallback();
-
-    if (!this.context) return;
-
-    this.context.machine.subscribe(() => {
-      if (!this.context) return;
-
-      const props = this.context.api.getTriggerProps();
-
-      spreadProps(this, props, this.#previousProps);
-
-      this.#previousProps = props;
-    });
-  }
-
-  disconnectedCallback(): void {
-    super.disconnectedCallback();
-
-    spreadProps(this, undefined, this.#previousProps);
-  }
+  @consume({ context: tooltipApiContext, subscribe: true })
+  api?: tooltip.Api;
 
   render() {
-    console.log("sw-tooltip-trigger render()", this.context);
+    this.#updateProps();
 
     return html`<div><slot></slot></div>`;
   }
+
+  #updateProps = () => {
+    if (!this.api) return;
+
+    const props = this.api.getTriggerProps();
+
+    spreadProps(this, props, this.#previousProps);
+
+    this.#previousProps = props;
+  };
 }
 
 @customElement("sw-tooltip-positioner")
@@ -106,36 +99,24 @@ export class TooltipPositioner extends LitElement {
 
   #previousProps?: AnyProps;
 
-  @consume({ context: tooltipContext })
-  context?: TooltipContext;
-
-  connectedCallback(): void {
-    super.connectedCallback();
-
-    if (!this.context) return;
-
-    this.context.machine.subscribe(() => {
-      if (!this.context) return;
-
-      const props = this.context.api.getPositionerProps();
-
-      spreadProps(this, props, this.#previousProps);
-
-      this.#previousProps = props;
-    });
-  }
-
-  disconnectedCallback(): void {
-    super.disconnectedCallback();
-
-    spreadProps(this, undefined, this.#previousProps);
-  }
+  @consume({ context: tooltipApiContext, subscribe: true })
+  api?: tooltip.Api;
 
   render() {
-    return html`<div>
-      <slot></slot>
-    </div>`;
+    this.#updateProps();
+
+    return html`<slot></slot>`;
   }
+
+  #updateProps = () => {
+    if (!this.api) return;
+
+    const props = this.api.getPositionerProps();
+
+    spreadProps(this, props, this.#previousProps);
+
+    this.#previousProps = props;
+  };
 }
 
 @customElement("sw-tooltip-content")
@@ -144,36 +125,26 @@ export class TooltipContent extends LitElement {
 
   #previousProps?: AnyProps;
 
-  @consume({ context: tooltipContext })
-  context?: TooltipContext;
-
-  connectedCallback(): void {
-    super.connectedCallback();
-
-    if (!this.context) return;
-
-    this.context.machine.subscribe(() => {
-      if (!this.context) return;
-
-      const props = this.context.api.getContentProps();
-
-      spreadProps(this, props, this.#previousProps);
-
-      this.#previousProps = props;
-    });
-  }
-
-  disconnectedCallback(): void {
-    super.disconnectedCallback();
-
-    spreadProps(this, undefined, this.#previousProps);
-  }
+  @consume({ context: tooltipApiContext, subscribe: true })
+  api?: tooltip.Api;
 
   render() {
-    return html`<div>
-      <slot></slot>
-    </div>`;
+    this.#updateProps();
+
+    return html`<slot></slot>`;
   }
+
+  #updateProps = () => {
+    if (!this.api) return;
+
+    const props = this.api.getContentProps();
+
+    console.log(props);
+
+    spreadProps(this, props, this.#previousProps);
+
+    this.#previousProps = props;
+  };
 }
 
 declare global {
