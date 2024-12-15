@@ -41,7 +41,7 @@ const getEvents = (props: AnyProps) => {
 };
 
 export const spreadProps = (
-  element: HTMLElement,
+  element: Element,
   props?: AnyProps,
   prevProps?: AnyProps,
 ) => {

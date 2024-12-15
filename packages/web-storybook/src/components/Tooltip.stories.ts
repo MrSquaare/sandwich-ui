@@ -4,6 +4,9 @@ import type { Meta, StoryObj } from "@storybook/web-components";
 const meta = {
   title: "Components/Tooltip",
   component: "sw-tooltip",
+  parameters: {
+    layout: "centered",
+  },
   tags: ["autodocs"],
 } satisfies Meta<Tooltip>;
 
@@ -15,11 +18,11 @@ export const Default: Story = {
   render: () => `
     <sw-tooltip id="myTooltip">
       <sw-tooltip-trigger>
-        <button>Hover me</button>
+        Tooltip
       </sw-tooltip-trigger>
       <sw-tooltip-positioner>
         <sw-tooltip-content>
-          Hello, world!
+          Tooltip content
         </sw-tooltip-content>
       </sw-tooltip-positioner>
     </sw-tooltip>

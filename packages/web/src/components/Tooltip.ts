@@ -1,8 +1,10 @@
 import { consume, createContext, provide } from "@lit/context";
+import { TooltipContentRecipe } from "@sandwich-ui/core/recipes";
 import * as tooltip from "@zag-js/tooltip";
 import { LitElement, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 
+import { globalStyle } from "../style";
 import { AnyProps } from "../types/props";
 import { normalizeProps } from "../utilities/zag/normalize-props";
 import { spreadProps } from "../utilities/zag/spread-props";
@@ -18,8 +20,6 @@ const tooltipApiContext = createContext<tooltip.Api | undefined>(
 
 @customElement("sw-tooltip")
 export class Tooltip extends LitElement {
-  protected createRenderRoot = () => this;
-
   @property({ type: String })
   id!: string;
 
@@ -27,6 +27,7 @@ export class Tooltip extends LitElement {
   service?: tooltip.Service;
 
   @provide({ context: tooltipApiContext })
+  @state()
   api?: tooltip.Api;
 
   connectedCallback(): void {
@@ -59,7 +60,9 @@ export class Tooltip extends LitElement {
   }
 
   #initService = (context: tooltip.Context) => {
-    return tooltip.machine(context);
+    return tooltip.machine({
+      ...context,
+    });
   };
 
   #initApi = (service: tooltip.Service) => {
@@ -69,8 +72,6 @@ export class Tooltip extends LitElement {
 
 @customElement("sw-tooltip-trigger")
 export class TooltipTrigger extends LitElement {
-  protected createRenderRoot = () => this;
-
   #previousProps?: AnyProps;
 
   @consume({ context: tooltipApiContext, subscribe: true })
@@ -79,15 +80,15 @@ export class TooltipTrigger extends LitElement {
   render() {
     this.#updateProps();
 
-    return html`<div><slot></slot></div>`;
+    return html`<slot></slot>`;
   }
 
   #updateProps = () => {
-    if (!this.api) return;
+    if (!this.api || !this.shadowRoot?.host) return;
 
     const props = this.api.getTriggerProps();
 
-    spreadProps(this, props, this.#previousProps);
+    spreadProps(this.shadowRoot.host, props, this.#previousProps);
 
     this.#previousProps = props;
   };
@@ -95,8 +96,6 @@ export class TooltipTrigger extends LitElement {
 
 @customElement("sw-tooltip-positioner")
 export class TooltipPositioner extends LitElement {
-  protected createRenderRoot = () => this;
-
   #previousProps?: AnyProps;
 
   @consume({ context: tooltipApiContext, subscribe: true })
@@ -109,11 +108,11 @@ export class TooltipPositioner extends LitElement {
   }
 
   #updateProps = () => {
-    if (!this.api) return;
+    if (!this.api || !this.shadowRoot?.host) return;
 
     const props = this.api.getPositionerProps();
 
-    spreadProps(this, props, this.#previousProps);
+    spreadProps(this.shadowRoot.host, props, this.#previousProps);
 
     this.#previousProps = props;
   };
@@ -121,7 +120,7 @@ export class TooltipPositioner extends LitElement {
 
 @customElement("sw-tooltip-content")
 export class TooltipContent extends LitElement {
-  protected createRenderRoot = () => this;
+  static styles = globalStyle;
 
   #previousProps?: AnyProps;
 
@@ -131,17 +130,15 @@ export class TooltipContent extends LitElement {
   render() {
     this.#updateProps();
 
-    return html`<slot></slot>`;
+    return html`<div class=${TooltipContentRecipe()}><slot></slot></div>`;
   }
 
   #updateProps = () => {
-    if (!this.api) return;
+    if (!this.api || !this.shadowRoot?.host) return;
 
     const props = this.api.getContentProps();
 
-    console.log(props);
-
-    spreadProps(this, props, this.#previousProps);
+    spreadProps(this.shadowRoot.host, props, this.#previousProps);
 
     this.#previousProps = props;
   };
