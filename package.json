@@ -2,7 +2,7 @@
   "private": true,
   "name": "@sandwich-ui/root",
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "turbo dev --continue",
     "build": "turbo build",
     "preview": "turbo preview",
     "lint": "turbo lint --continue",

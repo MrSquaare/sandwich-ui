@@ -1,0 +1,24 @@
+@layer reset, base, tokens, recipes, utilities;
+
+body:has(#storybook-root:not([hidden])) {
+  background-color: #ffffff;
+}
+
+body:has(#storybook-docs:not([hidden])) {
+  .docs-story{
+    background-color: #ffffff;
+  }
+}
+
+
+.dark {
+  body:has(#storybook-root:not([hidden])) {
+    background-color: #000000;
+  }
+
+  body:has(#storybook-docs:not([hidden])) {
+    .docs-story{
+      background-color: #000000;
+    }
+  }
+}

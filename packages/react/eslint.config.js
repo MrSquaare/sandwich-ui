@@ -6,7 +6,7 @@ import globals from "globals";
 import rootConfig from "../../eslint.config.mjs";
 
 export default [
-  { ignores: ["dist", "src/styled-system"] },
+  { ignores: ["dist"] },
   ...rootConfig,
   {
     ...react.configs.flat.recommended,
