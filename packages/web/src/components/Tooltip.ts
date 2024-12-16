@@ -1,6 +1,7 @@
 import { consume, createContext, provide } from "@lit/context";
 import { TooltipContentRecipe } from "@sandwich-ui/core/recipes";
 import { StateFrom } from "@zag-js/core";
+import * as presence from "@zag-js/presence";
 import * as tooltip from "@zag-js/tooltip";
 import { LitElement, PropertyValues, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
@@ -65,10 +66,7 @@ export class Tooltip extends LitElement {
   };
 }
 
-@customElement("sw-tooltip-trigger")
-export class TooltipTrigger extends LitElement {
-  #previousProps?: AnyProps;
-
+export class TooltipConsumer extends LitElement {
   @consume({ context: tooltipServiceContext, subscribe: true })
   service?: tooltip.Service;
 
@@ -79,15 +77,30 @@ export class TooltipTrigger extends LitElement {
   api?: tooltip.Api;
 
   protected firstUpdated(): void {
-    if (this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
-    }
+    this.api = this.initApi();
   }
 
   protected updated(_changedProperties: PropertyValues): void {
-    if (_changedProperties.has("state") && this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
+    super.updated(_changedProperties);
+
+    if (_changedProperties.has("state")) {
+      this.api = this.initApi();
     }
+  }
+
+  protected initApi = () => {
+    if (!this.service || !this.state) return;
+
+    return tooltip.connect(this.state, this.service.send, normalizeProps);
+  };
+}
+
+@customElement("sw-tooltip-trigger")
+export class TooltipTrigger extends TooltipConsumer {
+  #previousProps?: AnyProps;
+
+  protected updated(_changedProperties: PropertyValues): void {
+    super.updated(_changedProperties);
 
     this.#updateProps();
   }
@@ -108,28 +121,11 @@ export class TooltipTrigger extends LitElement {
 }
 
 @customElement("sw-tooltip-positioner")
-export class TooltipPositioner extends LitElement {
+export class TooltipPositioner extends TooltipConsumer {
   #previousProps?: AnyProps;
 
-  @consume({ context: tooltipServiceContext, subscribe: true })
-  service?: tooltip.Service;
-
-  @consume({ context: tooltipStateContext, subscribe: true })
-  @state()
-  state?: TooltipState;
-
-  api?: tooltip.Api;
-
-  protected firstUpdated(): void {
-    if (this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
-    }
-  }
-
   protected updated(_changedProperties: PropertyValues): void {
-    if (_changedProperties.has("state") && this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
-    }
+    super.updated(_changedProperties);
 
     this.#updateProps();
   }
@@ -150,30 +146,13 @@ export class TooltipPositioner extends LitElement {
 }
 
 @customElement("sw-tooltip-content")
-export class TooltipContent extends LitElement {
+export class TooltipContent extends TooltipConsumer {
   static styles = globalStyle;
 
   #previousProps?: AnyProps;
 
-  @consume({ context: tooltipServiceContext, subscribe: true })
-  service?: tooltip.Service;
-
-  @consume({ context: tooltipStateContext, subscribe: true })
-  @state()
-  state?: TooltipState;
-
-  api?: tooltip.Api;
-
-  protected firstUpdated(): void {
-    if (this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
-    }
-  }
-
   protected updated(_changedProperties: PropertyValues): void {
-    if (_changedProperties.has("state") && this.service && this.state) {
-      this.api = tooltip.connect(this.state, this.service.send, normalizeProps);
-    }
+    super.updated(_changedProperties);
 
     this.#updateProps();
   }
