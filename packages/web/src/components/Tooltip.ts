@@ -151,8 +151,15 @@ export class TooltipContent extends TooltipConsumer {
 
   #previousProps?: AnyProps;
 
+  @state()
+  isHidden = true;
+
   protected updated(_changedProperties: PropertyValues): void {
     super.updated(_changedProperties);
+
+    if (this.api?.open) {
+      this.isHidden = false;
+    }
 
     this.#updateProps();
   }
@@ -165,10 +172,25 @@ export class TooltipContent extends TooltipConsumer {
     if (!this.api || !this.shadowRoot?.firstElementChild) return;
 
     const props = this.api.getContentProps();
+    const additionalProps = {
+      hidden: this.isHidden,
+      onAnimationEnd: this.#trackAnimationEnd,
+    };
+    const mergedProps = { ...props, ...additionalProps };
 
-    spreadProps(this.shadowRoot.firstElementChild, props, this.#previousProps);
+    spreadProps(
+      this.shadowRoot.firstElementChild,
+      mergedProps,
+      this.#previousProps,
+    );
 
-    this.#previousProps = props;
+    this.#previousProps = mergedProps;
+  };
+
+  #trackAnimationEnd = (event: AnimationEvent) => {
+    if (event.animationName === "popoverOut") {
+      this.isHidden = true;
+    }
   };
 }
 
