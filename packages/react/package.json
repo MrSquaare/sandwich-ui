@@ -1,6 +1,6 @@
 {
   "name": "@sandwich-ui/react",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -12,7 +12,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "predev": "panda codegen",
     "dev": "vite build --watch",

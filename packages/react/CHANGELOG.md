@@ -1,5 +1,14 @@
 # @sandwich-ui/react
 
+## 0.4.1
+
+### Patch Changes
+
+- [#11](https://github.com/MrSquaare/sandwich-ui/pull/11) [`6a0f993`](https://github.com/MrSquaare/sandwich-ui/commit/6a0f9936d018e478602a801ec80c95b4c414d872) Thanks [@MrSquaare](https://github.com/MrSquaare)! - Files to publish, bump deps
+
+- Updated dependencies [[`6a0f993`](https://github.com/MrSquaare/sandwich-ui/commit/6a0f9936d018e478602a801ec80c95b4c414d872)]:
+  - @sandwich-ui/core@0.1.1
+
 ## 0.4.0
 
 ### Minor Changes
