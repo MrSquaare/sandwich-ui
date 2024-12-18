@@ -1,0 +1,34 @@
+---
+title: Using
+description: How to use Sandwich UI
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## Using the styled system
+
+```jsx
+import { css } from "@sandwich-ui/core/css";
+
+function Example() {
+  return (
+    `<p class="${css({ fontSize: "lg" })}">Lorem ipsum</p>`
+  );
+}
+```
+
+## Using a recipe
+
+```jsx
+import { ButtonRecipe } from "@sandwich-ui/core/recipes";
+
+function Example() {
+  return (
+    `<button class="${ButtonRecipe()}">Click me</button>`
+  );
+}
+```
+
+<Aside type="caution">
+Recipes do not contain any JavaScript logic; they are simply collections of CSS classes.
+</Aside>

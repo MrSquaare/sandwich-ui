@@ -14,8 +14,12 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Guide",
-          autogenerate: { directory: "guide" },
+          label: "@sandwich-ui/core",
+          autogenerate: { directory: "core" },
+        },
+        {
+          label: "@sandwich-ui/react",
+          autogenerate: { directory: "react" },
         },
       ],
     }),
