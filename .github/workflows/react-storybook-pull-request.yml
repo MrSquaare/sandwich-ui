@@ -1,11 +1,11 @@
-name: "@sandwich-ui/react Storybook Pull Request"
+name: "@sandwich-ui/react-storybook Pull Request"
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - ".github/workflows/storybook-react-pull-request.yml"
+      - ".github/workflows/react-storybook-pull-request.yml"
       - "packages/react-storybook/**"
       - "packages/react/**"
 
