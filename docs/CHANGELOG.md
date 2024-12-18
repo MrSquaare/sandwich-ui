@@ -1,5 +1,11 @@
 # @sandwich-ui/docs
 
+## 0.2.2
+
+### Patch Changes
+
+- [#15](https://github.com/MrSquaare/sandwich-ui/pull/15) [`e692700`](https://github.com/MrSquaare/sandwich-ui/commit/e692700be58298cb13c180dc92561a31416eda10) Thanks [@MrSquaare](https://github.com/MrSquaare)! - Add core and react docs
+
 ## 0.2.1
 
 ### Patch Changes
