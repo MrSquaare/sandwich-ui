@@ -26,3 +26,6 @@ dist-ssr
 ## Panda
 src/styled-system
 src/styled-system-studio
+
+# rollup-plugin-vizualizer
+stats.html

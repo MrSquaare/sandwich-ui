@@ -1,3 +1,4 @@
+import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -14,7 +15,7 @@ export default defineConfig({
       formats: ["cjs", "es"],
     },
     rollupOptions: {
-      external: ["@pandacss/dev"],
+      external: [/^@pandacss.*/, /^@sandwich-ui.*/],
     },
   },
   plugins: [
@@ -22,5 +23,6 @@ export default defineConfig({
       copyDtsFiles: true,
     }),
     tsconfigPaths(),
+    visualizer(),
   ],
 });
