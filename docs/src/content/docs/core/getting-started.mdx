@@ -1,0 +1,56 @@
+---
+title: Getting started
+description: How to start with Sandwich UI core
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+### Install and setup Panda CSS
+
+See the [Panda CSS documentation](https://panda-css.com/docs/overview/getting-started#installation) for installation and setup instructions.
+
+### Install the dependency
+
+<Tabs>
+<TabItem label="npm">
+
+```bash
+npm install @sandwich-ui/core
+```
+
+</TabItem>
+<TabItem  label="yarn">
+
+```bash
+yarn add @sandwich-ui/core
+```
+
+</TabItem>
+<TabItem  label="pnpm">
+
+```bash
+pnpm install @sandwich-ui/core
+```
+
+</TabItem>
+</Tabs>
+
+### Update the `panda.config.ts`
+
+```ts
+import { defineConfig } from "@pandacss/dev";
+import sandwichUIPreset from "@sandwich-ui/core/preset";
+
+export default defineConfig({
+  preflight: true,
+  presets: ["@pandacss/dev/presets", sandwichUIPreset],
+  include: [
+    "./node_modules/@sandwich-ui/core/dist/panda.buildinfo.json",
+    "**/*.html",
+  ],
+  importMap: "@sandwich-ui/core",
+  outdir: "./node_modules/@sandwich-ui/core/dist/styled-system",
+});
+```

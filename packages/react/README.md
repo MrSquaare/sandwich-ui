@@ -1,3 +1,3 @@
-# sandwich-ui
+# @sandwich-ui/react
 
-The Sandwich UI library
+The Sandwich UI React library

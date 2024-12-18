@@ -1,3 +1,3 @@
-# storybook
+# @sandwich-ui/react-storybook
 
-The Sandwich UI storybook
+The Sandwich UI React Storybook
