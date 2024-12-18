@@ -1,6 +1,6 @@
 # sandwich-ui
 
-A tasty React UI kit
+A tasty UI kit
 
 ## Table of Contents
 
@@ -13,42 +13,26 @@ A tasty React UI kit
 
 ## About
 
-Sandwich UI is a React UI kit used for my personal projects.
+Sandwich UI is a UI kit used for my personal projects.
 
 This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo), powered by [Turborepo](https://turborepo.org/).
 
-It is composed of three projects:
+It is composed of multiple packages:
 
-- the [Sandwich UI library](sandwich-ui)
-- the [Docs](docs)
-- the [Storybook](storybook)
+- [Core library](packages/core)
+- [React library](packages/react)
+- [React storybook](packages/react-storybook)
+- [Docs](docs)
 
 ## Getting started
 
-### Installation
-
-```sh
-# npm
-npm install @sandwich-ui/react
-
-# yarn
-yarn add @sandwich-ui/react
-
-# pnpm
-pnpm install @sandwich-ui/react
-```
+- [Core library](docs/src/content/docs/core/getting-started.mdx)
+- [React library](docs/src/content/docs/react/getting-started.mdx)
 
 ## Using
 
-```jsx
-import { Button } from "@sandwich-ui/react";
-
-function Example() {
-  return (
-    <Button>Click me</Button>
-  );
-}
-```
+- [Core library](docs/src/content/docs/core/using.mdx)
+- [React library](docs/src/content/docs/react/using.mdx)
 
 ## Contributing
 
