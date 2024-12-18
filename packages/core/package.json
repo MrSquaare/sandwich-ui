@@ -1,6 +1,6 @@
 {
   "name": "@sandwich-ui/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -37,7 +37,9 @@
       "types": "./dist/recipes/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "predev": "panda codegen",
     "dev": "vite build --watch",
