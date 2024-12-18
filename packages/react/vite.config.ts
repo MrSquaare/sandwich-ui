@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -17,9 +18,10 @@ export default defineConfig({
         "react",
         "react-dom",
         "react/jsx-runtime",
-        "@ark-ui/react",
-        "@pandacss/dev",
-        /^@sandwich-ui\/core\/.*/,
+        /^@ark-ui.*/,
+        /^@zag-js.*/,
+        /^@pandacss.*/,
+        /^@sandwich-ui.*/,
       ],
     },
   },
@@ -28,5 +30,6 @@ export default defineConfig({
     dts({
       copyDtsFiles: true,
     }),
+    visualizer(),
   ],
 });
