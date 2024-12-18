@@ -1,5 +1,13 @@
 # @sandwich-ui/react-storybook
 
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [[`7ac2ff0`](https://github.com/MrSquaare/sandwich-ui/commit/7ac2ff0a5e0bb5505dd77c6d43f17473c4d78c76)]:
+  - @sandwich-ui/react@0.4.2
+  - @sandwich-ui/core@0.1.2
+
 ## 0.2.1
 
 ### Patch Changes
