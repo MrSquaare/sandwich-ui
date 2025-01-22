@@ -1,5 +1,11 @@
 # @sandwich-ui/core
 
+## 0.1.3
+
+### Patch Changes
+
+- [#18](https://github.com/MrSquaare/sandwich-ui/pull/18) [`976ec99`](https://github.com/MrSquaare/sandwich-ui/commit/976ec992b47c9d858db9f46ca58c3f0492bd490f) Thanks [@MrSquaare](https://github.com/MrSquaare)! - Bump deps
+
 ## 0.1.2
 
 ### Patch Changes
