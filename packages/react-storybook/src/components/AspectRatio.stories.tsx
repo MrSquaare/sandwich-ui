@@ -24,7 +24,7 @@ export const Default: Story = {
     <AspectRatio {...args}>
       <img
         alt={"Placeholder"}
-        src={"https://via.placeholder.com/1024"}
+        src={"https://picsum.photos/1024"}
         style={{
           width: "100%",
           height: "100%",

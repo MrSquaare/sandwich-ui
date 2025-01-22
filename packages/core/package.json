@@ -7,14 +7,14 @@
   "types": "./dist/index.d.ts",
   "exports": {
     "./css": {
+      "types": "./dist/styled-system/css/index.d.ts",
       "require": "./dist/styled-system/css/index.mjs",
-      "import": "./dist/styled-system/css/index.mjs",
-      "types": "./dist/styled-system/css/index.d.ts"
+      "import": "./dist/styled-system/css/index.mjs"
     },
     "./tokens": {
+      "types": "./dist/styled-system/tokens/index.d.ts",
       "require": "./dist/styled-system/tokens/index.mjs",
-      "import": "./dist/styled-system/tokens/index.mjs",
-      "types": "./dist/styled-system/tokens/index.d.ts"
+      "import": "./dist/styled-system/tokens/index.mjs"
     },
     "./types": {
       "types": "./dist/styled-system/types/index.d.ts",
@@ -22,19 +22,19 @@
       "import": "./dist/styled-system/types/index.mjs"
     },
     "./patterns": {
+      "types": "./dist/styled-system/patterns/index.d.ts",
       "require": "./dist/styled-system/patterns/index.mjs",
-      "import": "./dist/styled-system/patterns/index.mjs",
-      "types": "./dist/styled-system/patterns/index.d.ts"
+      "import": "./dist/styled-system/patterns/index.mjs"
     },
     "./preset": {
+      "types": "./dist/preset/index.d.ts",
       "require": "./dist/preset/index.cjs",
-      "import": "./dist/preset/index.js",
-      "types": "./dist/preset/index.d.ts"
+      "import": "./dist/preset/index.js"
     },
     "./recipes": {
+      "types": "./dist/recipes/index.d.ts",
       "require": "./dist/recipes/index.cjs",
-      "import": "./dist/recipes/index.js",
-      "types": "./dist/recipes/index.d.ts"
+      "import": "./dist/recipes/index.js"
     }
   },
   "files": [
@@ -50,18 +50,18 @@
     "clean": "rimraf dist/ src/styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.49.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@pandacss/dev": "^0.51.1",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
-    "eslint-plugin-import-x": "^4.5.1",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-import-x": "^4.6.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "rimraf": "^6.0.1",
-    "rollup-plugin-visualizer": "^5.12.0",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.18.1",
-    "vite": "^5.4.11",
-    "vite-plugin-dts": "^4.3.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0",
+    "vite": "^6.0.11",
+    "vite-plugin-dts": "^4.5.0",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
