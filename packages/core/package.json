@@ -50,7 +50,7 @@
     "clean": "rimraf dist/ src/styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
+    "@eslint/js": "^9.22.0",
     "@pandacss/dev": "^0.53.1",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.1.1",
