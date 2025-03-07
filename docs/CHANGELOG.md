@@ -1,5 +1,11 @@
 # @sandwich-ui/docs
 
+## 0.2.4
+
+### Patch Changes
+
+- [#20](https://github.com/MrSquaare/sandwich-ui/pull/20) [`31fc11c`](https://github.com/MrSquaare/sandwich-ui/commit/31fc11ce9e61a1e75aa310da36a9a6ca8bce6aff) Thanks [@MrSquaare](https://github.com/MrSquaare)! - Bump deps
+
 ## 0.2.3
 
 ### Patch Changes
