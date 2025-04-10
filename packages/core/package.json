@@ -43,25 +43,20 @@
   "scripts": {
     "predev": "panda codegen",
     "dev": "vite build --watch",
-    "prebuild": "rimraf dist/ && panda codegen",
+    "prebuild": "del-cli dist/ && panda codegen",
     "build": "tsc && vite build && panda ship -o dist/panda.buildinfo.json",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "clean": "rimraf dist/ src/styled-system/ node_modules/.cache/"
+    "clean": "del-cli dist/ src/styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@pandacss/dev": "^0.53.1",
-    "eslint": "^9.22.0",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-import-resolver-typescript": "^3.8.3",
-    "eslint-plugin-import-x": "^4.6.1",
-    "eslint-plugin-prettier": "^5.2.3",
-    "rimraf": "^6.0.1",
+    "@pandacss/dev": "^0.53.3",
+    "@sandwich-ui/eslint-config": "workspace:*",
+    "eslint": "^9.24.0",
+    "del-cli": "^6.0.0",
     "rollup-plugin-visualizer": "^5.14.0",
-    "typescript": "~5.7.3",
-    "typescript-eslint": "^8.26.0",
-    "vite": "^6.2.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.2.6",
     "vite-plugin-dts": "^4.5.3",
     "vite-tsconfig-paths": "^5.1.4"
   }
