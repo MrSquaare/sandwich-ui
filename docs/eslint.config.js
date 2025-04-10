@@ -1,9 +1,8 @@
-import astro from "eslint-plugin-astro";
-
-import rootConfig from "../eslint.config.mjs";
+import config from "@sandwich-ui/eslint-config";
+import * as astro from "eslint-plugin-astro";
 
 export default [
   { ignores: ["dist", ".astro"] },
-  ...rootConfig,
+  ...config,
   ...astro.configs.recommended,
 ];

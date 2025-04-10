@@ -1,8 +1,8 @@
-import rootConfig from "../../eslint.config.mjs";
+import config from "@sandwich-ui/eslint-config";
 
 export default [
   { ignores: ["dist", "src/styled-system"] },
-  ...rootConfig,
+  ...config,
   {
     languageOptions: {
       ecmaVersion: 2020,

@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "@sandwich-ui/eslint-config",
+  "version": "0.0.0",
+  "main": "./index.js",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "peerDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-import-resolver-typescript": "^4.3.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.5",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.24.0"
+  }
+}

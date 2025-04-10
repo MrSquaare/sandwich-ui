@@ -9,9 +9,13 @@ export default defineConfig({
       editLink: {
         baseUrl: "https://github.com/MrSquaare/sandwich-ui/edit/main/docs/",
       },
-      social: {
-        github: "https://github.com/MrSquaare/sandwich-ui",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/MrSquaare/sandwich-ui",
+        },
+      ],
       sidebar: [
         {
           label: "@sandwich-ui/core",
