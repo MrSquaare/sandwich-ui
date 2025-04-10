@@ -1,5 +1,15 @@
 # @sandwich-ui/react-storybook
 
+## 0.2.5
+
+### Patch Changes
+
+- [#25](https://github.com/MrSquaare/sandwich-ui/pull/25) [`eef9dd4`](https://github.com/MrSquaare/sandwich-ui/commit/eef9dd45cdc7a004e93d148a0740bee0a7ddb479) Thanks [@MrSquaare](https://github.com/MrSquaare)! - Bump deps
+
+- Updated dependencies [[`eef9dd4`](https://github.com/MrSquaare/sandwich-ui/commit/eef9dd45cdc7a004e93d148a0740bee0a7ddb479), [`eef9dd4`](https://github.com/MrSquaare/sandwich-ui/commit/eef9dd45cdc7a004e93d148a0740bee0a7ddb479)]:
+  - @sandwich-ui/react@0.4.5
+  - @sandwich-ui/core@0.1.5
+
 ## 0.2.4
 
 ### Patch Changes
