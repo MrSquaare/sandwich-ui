@@ -21,14 +21,13 @@
     "noUncheckedSideEffectImports": true,
 
     "paths": {
-      "@sandwich-ui/core/css": ["./src/styled-system/css"],
-      "@sandwich-ui/core/tokens": ["./src/styled-system/tokens"],
-      "@sandwich-ui/core/types": ["./src/styled-system/types"],
-      "@sandwich-ui/core/patterns": ["./src/styled-system/patterns"],
+      "@sandwich-ui/core/css": ["./styled-system/css"],
+      "@sandwich-ui/core/patterns": ["./styled-system/patterns"],
+      "@sandwich-ui/core/recipes": ["./styled-system/recipes"],
+      "@sandwich-ui/core/tokens": ["./styled-system/tokens"],
+      "@sandwich-ui/core/types": ["./styled-system/types"],
       "@sandwich-ui/core/preset": ["./src/preset"],
-      "@sandwich-ui/core/recipes": ["./src/recipes"],
     }
   },
-  "include": ["src"],
-  "exclude": ["src/styled-system"]
+  "include": ["src"]
 }

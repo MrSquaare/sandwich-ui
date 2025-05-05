@@ -5,10 +5,10 @@ export default defineConfig({
   preflight: true,
   prefix: "sw",
   presets: ["@pandacss/dev/presets", sandwichUIPreset],
-  include: [
-    "./node_modules/@sandwich-ui/core/dist/panda.buildinfo.json",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
   importMap: "@sandwich-ui/core",
-  outdir: "./node_modules/@sandwich-ui/core/dist/styled-system",
+  outdir: "./node_modules/@sandwich-ui/core/styled-system",
+  staticCss: {
+    recipes: "*",
+  },
 });

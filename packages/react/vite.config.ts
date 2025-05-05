@@ -7,6 +7,7 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   build: {
     outDir: "dist",
+    emptyOutDir: false,
     lib: {
       entry: {
         index: "./src/index.ts",
@@ -25,11 +26,5 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [
-    react(),
-    dts({
-      copyDtsFiles: true,
-    }),
-    visualizer(),
-  ],
+  plugins: [react(), dts(), visualizer()],
 });

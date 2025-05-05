@@ -7,10 +7,10 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   build: {
     outDir: "dist",
+    emptyOutDir: false,
     lib: {
       entry: {
         "preset/index": "./src/preset/index.ts",
-        "recipes/index": "./src/recipes/index.ts",
       },
       formats: ["cjs", "es"],
     },
@@ -18,11 +18,5 @@ export default defineConfig({
       external: [/^@pandacss.*/, /^@sandwich-ui.*/],
     },
   },
-  plugins: [
-    dts({
-      copyDtsFiles: true,
-    }),
-    tsconfigPaths(),
-    visualizer(),
-  ],
+  plugins: [dts(), tsconfigPaths(), visualizer()],
 });

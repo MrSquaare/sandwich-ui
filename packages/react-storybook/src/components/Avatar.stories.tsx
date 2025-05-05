@@ -1,4 +1,4 @@
-import { AvatarRecipe } from "@sandwich-ui/core/recipes";
+import { avatar } from "@sandwich-ui/core/recipes";
 import { Avatar, AvatarFallback, AvatarImage } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -12,7 +12,7 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: AvatarRecipe.variantMap.size,
+      options: avatar.variantMap.size,
     },
   },
 } satisfies Meta<typeof Avatar>;

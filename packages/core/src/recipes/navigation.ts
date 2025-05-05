@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const NavigationRecipe = cva({
+export const NavigationRecipe = defineRecipe({
+  className: "navigation",
+  description: "Navigation component styles",
   base: {
     display: "flex",
     flexDirection: "row",
@@ -13,9 +15,9 @@ export const NavigationRecipe = cva({
   },
 });
 
-export type NavigationRecipeVariant = RecipeVariant<typeof NavigationRecipe>;
-
-export const NavigationListRecipe = cva({
+export const NavigationListRecipe = defineRecipe({
+  className: "navigation-list",
+  description: "Navigation list component styles",
   base: {
     display: "flex",
     flexDirection: "row",
@@ -25,7 +27,3 @@ export const NavigationListRecipe = cva({
     listStyleType: "none",
   },
 });
-
-export type NavigationListRecipeVariant = RecipeVariant<
-  typeof NavigationListRecipe
->;

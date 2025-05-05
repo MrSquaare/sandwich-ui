@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const TooltipContentRecipe = cva({
+export const TooltipContentRecipe = defineRecipe({
+  className: "tooltip-content",
+  description: "Tooltip content component styles",
   base: {
     bg: { base: "white", _dark: "black" },
     color: { base: "black", _dark: "white" },
@@ -17,7 +19,3 @@ export const TooltipContentRecipe = cva({
     },
   },
 });
-
-export type TooltipContentRecipeVariant = RecipeVariant<
-  typeof TooltipContentRecipe
->;

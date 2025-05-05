@@ -1,10 +1,10 @@
 import * as ArkAvatar from "@ark-ui/react/avatar";
 import { cx } from "@sandwich-ui/core/css";
-import { AvatarRecipe, AvatarSize } from "@sandwich-ui/core/recipes";
+import { avatar, AvatarVariant } from "@sandwich-ui/core/recipes";
 import { ComponentRef, FC, forwardRef } from "react";
 
 export type AvatarProps = Omit<ArkAvatar.AvatarRootProps, "size"> & {
-  size?: AvatarSize;
+  size?: AvatarVariant["size"];
 };
 export type AvatarRef = ComponentRef<typeof ArkAvatar.AvatarRoot>;
 
@@ -13,7 +13,7 @@ export const Avatar = forwardRef<AvatarRef, AvatarProps>(
     return (
       <ArkAvatar.AvatarRoot
         {...props}
-        className={cx(AvatarRecipe({ size }), className)}
+        className={cx(avatar({ size }), className)}
         ref={ref}
       >
         {children}

@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const AvatarRecipe = cva({
+export const AvatarRecipe = defineRecipe({
+  className: "avatar",
+  description: "Avatar component styles",
   base: {
     borderRadius: "full",
     overflow: "hidden",
@@ -25,7 +27,3 @@ export const AvatarRecipe = cva({
     size: "md",
   },
 });
-
-type AvatarRecipeVariant = RecipeVariant<typeof AvatarRecipe>;
-
-export type AvatarSize = AvatarRecipeVariant["size"];

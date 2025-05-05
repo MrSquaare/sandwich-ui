@@ -8,5 +8,8 @@ export default defineConfig({
   presets: ["@pandacss/dev/presets", sandwichUIPreset],
   include: ["./src/**/*.ts"],
   importMap: "@sandwich-ui/core",
-  outdir: "src/styled-system",
+  outdir: "styled-system",
+  staticCss: {
+    recipes: "*",
+  },
 });

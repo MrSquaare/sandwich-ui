@@ -1,4 +1,4 @@
-import { BadgeRecipe } from "@sandwich-ui/core/recipes";
+import { badge } from "@sandwich-ui/core/recipes";
 import { Badge } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -12,11 +12,11 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: BadgeRecipe.variantMap.size,
+      options: badge.variantMap.size,
     },
     variant: {
       control: "select",
-      options: BadgeRecipe.variantMap.variant,
+      options: badge.variantMap.variant,
     },
   },
 } satisfies Meta<typeof Badge>;

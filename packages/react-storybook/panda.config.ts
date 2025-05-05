@@ -6,10 +6,9 @@ export default defineConfig({
   prefix: "sw",
   presets: ["@pandacss/dev/presets", sandwichUIPreset],
   include: [
-    "./node_modules/@sandwich-ui/core/dist/panda.buildinfo.json",
     "./node_modules/@sandwich-ui/react/dist/panda.buildinfo.json",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   importMap: "@sandwich-ui/core",
-  outdir: "./node_modules/@sandwich-ui/core/dist/styled-system",
+  outdir: "./node_modules/@sandwich-ui/core/styled-system",
 });

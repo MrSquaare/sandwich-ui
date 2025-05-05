@@ -1,6 +1,6 @@
 import * as ArkTooltip from "@ark-ui/react/tooltip";
 import { cx } from "@sandwich-ui/core/css";
-import { TooltipContentRecipe } from "@sandwich-ui/core/recipes";
+import { tooltipContent } from "@sandwich-ui/core/recipes";
 import { ComponentRef, FC, forwardRef } from "react";
 
 export type TooltipProps = ArkTooltip.TooltipRootProps;
@@ -29,7 +29,7 @@ export const TooltipContent = forwardRef<
     <ArkTooltip.TooltipPositioner>
       <ArkTooltip.TooltipContent
         {...props}
-        className={cx(TooltipContentRecipe(), className)}
+        className={cx(tooltipContent(), className)}
         ref={ref}
       >
         {children}

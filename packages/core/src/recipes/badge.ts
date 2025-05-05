@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const BadgeRecipe = cva({
+export const BadgeRecipe = defineRecipe({
+  className: "badge",
+  description: "Badge component styles",
   base: {
     display: "inline-flex",
     border: "1px solid transparent",
@@ -41,7 +43,3 @@ export const BadgeRecipe = cva({
     variant: "filled",
   },
 });
-
-export type BadgeRecipeVariant = RecipeVariant<typeof BadgeRecipe>;
-export type BadgeVariant = BadgeRecipeVariant["variant"];
-export type BadgeSize = BadgeRecipeVariant["size"];

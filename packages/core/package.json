@@ -2,58 +2,58 @@
   "name": "@sandwich-ui/core",
   "version": "0.1.5",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     "./css": {
-      "types": "./dist/styled-system/css/index.d.ts",
-      "require": "./dist/styled-system/css/index.mjs",
-      "import": "./dist/styled-system/css/index.mjs"
-    },
-    "./tokens": {
-      "types": "./dist/styled-system/tokens/index.d.ts",
-      "require": "./dist/styled-system/tokens/index.mjs",
-      "import": "./dist/styled-system/tokens/index.mjs"
-    },
-    "./types": {
-      "types": "./dist/styled-system/types/index.d.ts",
-      "require": "./dist/styled-system/types/index.mjs",
-      "import": "./dist/styled-system/types/index.mjs"
+      "types": "./styled-system/css/index.d.ts",
+      "require": "./styled-system/css/index.mjs",
+      "import": "./styled-system/css/index.mjs"
     },
     "./patterns": {
-      "types": "./dist/styled-system/patterns/index.d.ts",
-      "require": "./dist/styled-system/patterns/index.mjs",
-      "import": "./dist/styled-system/patterns/index.mjs"
+      "types": "./styled-system/patterns/index.d.ts",
+      "require": "./styled-system/patterns/index.mjs",
+      "import": "./styled-system/patterns/index.mjs"
+    },
+    "./recipes": {
+      "types": "./styled-system/recipes/index.d.ts",
+      "require": "./styled-system/recipes/index.mjs",
+      "import": "./styled-system/recipes/index.mjs"
+    },
+    "./tokens": {
+      "types": "./styled-system/tokens/index.d.ts",
+      "require": "./styled-system/tokens/index.mjs",
+      "import": "./styled-system/tokens/index.mjs"
+    },
+    "./types": {
+      "types": "./styled-system/types/index.d.ts",
+      "require": "./styled-system/types/index.mjs",
+      "import": "./styled-system/types/index.mjs"
     },
     "./preset": {
       "types": "./dist/preset/index.d.ts",
       "require": "./dist/preset/index.cjs",
       "import": "./dist/preset/index.js"
     },
-    "./recipes": {
-      "types": "./dist/recipes/index.d.ts",
-      "require": "./dist/recipes/index.cjs",
-      "import": "./dist/recipes/index.js"
-    }
+    "./panda.buildinfo.json": "./dist/panda.buildinfo.json",
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "predev": "panda codegen",
-    "dev": "vite build --watch",
+    "dev": "conc \"vite build --watch\" \"panda ship -o dist/panda.buildinfo.json --watch\" \"panda cssgen -o dist/style.css --watch\"",
     "prebuild": "del-cli dist/ && panda codegen",
-    "build": "tsc && vite build && panda ship -o dist/panda.buildinfo.json",
+    "build": "tsc && conc \"vite build\" \"panda ship -o dist/panda.buildinfo.json\" \"panda cssgen -o dist/style.css\"",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "clean": "del-cli dist/ src/styled-system/ node_modules/.cache/"
+    "clean": "del-cli dist/ styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.53.6",
     "@sandwich-ui/eslint-config": "workspace:*",
-    "eslint": "^9.25.1",
+    "concurrently": "^9.1.2",
     "del-cli": "^6.0.0",
+    "eslint": "^9.25.1",
     "rollup-plugin-visualizer": "^5.14.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.4",

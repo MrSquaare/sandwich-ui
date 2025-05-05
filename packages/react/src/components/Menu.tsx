@@ -1,6 +1,6 @@
 import * as ArkMenu from "@ark-ui/react/menu";
 import { cva, cx } from "@sandwich-ui/core/css";
-import { MenuContentRecipe, MenuItemRecipe } from "@sandwich-ui/core/recipes";
+import { menuContent, menuItem } from "@sandwich-ui/core/recipes";
 import { ComponentRef, FC, forwardRef } from "react";
 
 export type MenuProps = ArkMenu.MenuRootProps;
@@ -44,7 +44,7 @@ export const MenuContent = forwardRef<MenuContentRef, MenuContentProps>(
       <ArkMenu.MenuPositioner>
         <ArkMenu.MenuContent
           {...props}
-          className={cx(MenuContentRecipe(), className)}
+          className={cx(menuContent(), className)}
           ref={ref}
         >
           {children}
@@ -64,7 +64,7 @@ export const MenuItem = forwardRef<MenuItemRef, MenuItemProps>(
     return (
       <ArkMenu.MenuItem
         {...props}
-        className={cx(MenuItemRecipe(), className)}
+        className={cx(menuItem(), className)}
         ref={ref}
       >
         {children}

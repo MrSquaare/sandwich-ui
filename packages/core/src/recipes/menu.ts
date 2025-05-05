@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const MenuContentRecipe = cva({
+export const MenuContentRecipe = defineRecipe({
+  className: "menu-content",
+  description: "Menu content styles",
   base: {
     bg: { base: "white", _dark: "black" },
     color: { base: "black", _dark: "white" },
@@ -18,9 +20,9 @@ export const MenuContentRecipe = cva({
   },
 });
 
-export type MenuContentRecipeVariant = RecipeVariant<typeof MenuContentRecipe>;
-
-export const MenuItemRecipe = cva({
+export const MenuItemRecipe = defineRecipe({
+  className: "menu-item",
+  description: "Menu item styles",
   base: {
     color: { base: "black", _dark: "white" },
     fontSize: "sm",
@@ -34,5 +36,3 @@ export const MenuItemRecipe = cva({
     },
   },
 });
-
-export type MenuItemRecipeVariant = RecipeVariant<typeof MenuItemRecipe>;

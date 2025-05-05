@@ -1,9 +1,6 @@
 import { ark } from "@ark-ui/react";
 import { cx } from "@sandwich-ui/core/css";
-import {
-  NavigationListRecipe,
-  NavigationRecipe,
-} from "@sandwich-ui/core/recipes";
+import { navigation, navigationList } from "@sandwich-ui/core/recipes";
 import { ComponentRef, forwardRef } from "react";
 
 import { ExtendedComponentProps } from "../utilities/react";
@@ -14,11 +11,7 @@ export type NavigationRef = ComponentRef<typeof ark.nav>;
 export const Navigation = forwardRef<NavigationRef, NavigationProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <ark.nav
-        {...props}
-        className={cx(NavigationRecipe(), className)}
-        ref={ref}
-      >
+      <ark.nav {...props} className={cx(navigation(), className)} ref={ref}>
         {children}
       </ark.nav>
     );
@@ -35,11 +28,7 @@ export const NavigationList = forwardRef<
   NavigationListProps
 >(({ children, className, ...props }, ref) => {
   return (
-    <ark.ul
-      {...props}
-      className={cx(NavigationListRecipe(), className)}
-      ref={ref}
-    >
+    <ark.ul {...props} className={cx(navigationList(), className)} ref={ref}>
       {children}
     </ark.ul>
   );

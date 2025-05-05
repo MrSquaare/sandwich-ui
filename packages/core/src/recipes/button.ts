@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const ButtonRecipe = cva({
+export const ButtonRecipe = defineRecipe({
+  className: "button",
+  description: "Button component styles",
   base: {
     display: "inline-flex",
     border: "1px solid transparent",
@@ -49,7 +51,3 @@ export const ButtonRecipe = cva({
     variant: "filled",
   },
 });
-
-export type ButtonRecipeVariant = RecipeVariant<typeof ButtonRecipe>;
-export type ButtonSize = ButtonRecipeVariant["size"];
-export type ButtonVariant = ButtonRecipeVariant["variant"];

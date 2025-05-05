@@ -1,6 +1,8 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const CardRecipe = cva({
+export const CardRecipe = defineRecipe({
+  className: "card",
+  description: "Card component styles",
   base: {
     bg: { base: "white", _dark: "black" },
     color: { base: "black", _dark: "white" },
@@ -12,51 +14,47 @@ export const CardRecipe = cva({
   },
 });
 
-export type CardRecipeVariant = RecipeVariant<typeof CardRecipe>;
-
-export const CardHeaderRecipe = cva({
+export const CardHeaderRecipe = defineRecipe({
+  className: "card-header",
+  description: "Card header component styles",
   base: {
     px: 4,
     py: 2,
   },
 });
 
-export type CardHeaderRecipeVariant = RecipeVariant<typeof CardHeaderRecipe>;
-
-export const CardTitleRecipe = cva({
+export const CardTitleRecipe = defineRecipe({
+  className: "card-title",
+  description: "Card title component styles",
   base: {
     fontSize: "lg",
     fontWeight: "bold",
   },
 });
 
-export type CardTitleRecipeVariant = RecipeVariant<typeof CardTitleRecipe>;
-
-export const CardDescriptionRecipe = cva({
+export const CardDescriptionRecipe = defineRecipe({
+  className: "card-description",
+  description: "Card description component styles",
   base: {
     fontSize: "sm",
     color: { base: "neutral.600", _dark: "neutral.400" },
   },
 });
 
-export type CardDescriptionRecipeVariant = RecipeVariant<
-  typeof CardDescriptionRecipe
->;
-
-export const CardBodyRecipe = cva({
+export const CardBodyRecipe = defineRecipe({
+  className: "card-body",
+  description: "Card body component styles",
   base: {
     px: 4,
     py: 2,
   },
 });
 
-export type CardBodyRecipeVariant = RecipeVariant<typeof CardBodyRecipe>;
-
-export const CardFooterRecipe = cva({
+export const CardFooterRecipe = defineRecipe({
+  className: "card-footer",
+  description: "Card footer component styles",
   base: {
     px: 4,
     py: 2,
   },
 });
-
-export type CardFooterRecipeVariant = RecipeVariant<typeof CardFooterRecipe>;

@@ -1,4 +1,4 @@
-import { ButtonRecipe } from "@sandwich-ui/core/recipes";
+import { button } from "@sandwich-ui/core/recipes";
 import { Button } from "@sandwich-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
@@ -13,11 +13,11 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: ButtonRecipe.variantMap.size,
+      options: button.variantMap.size,
     },
     variant: {
       control: "select",
-      options: ButtonRecipe.variantMap.variant,
+      options: button.variantMap.variant,
     },
   },
   args: {

@@ -1,12 +1,12 @@
 import { ark } from "@ark-ui/react";
 import { cx } from "@sandwich-ui/core/css";
 import {
-  CardBodyRecipe,
-  CardDescriptionRecipe,
-  CardFooterRecipe,
-  CardHeaderRecipe,
-  CardRecipe,
-  CardTitleRecipe,
+  card,
+  cardBody,
+  cardDescription,
+  cardFooter,
+  cardHeader,
+  cardTitle,
 } from "@sandwich-ui/core/recipes";
 import { ComponentRef, forwardRef } from "react";
 
@@ -18,11 +18,7 @@ export type CardRef = ComponentRef<typeof ark.div>;
 export const Card = forwardRef<CardRef, CardProps>(
   ({ children, ...props }, ref) => {
     return (
-      <ark.div
-        {...props}
-        className={cx(CardRecipe(), props.className)}
-        ref={ref}
-      >
+      <ark.div {...props} className={cx(card(), props.className)} ref={ref}>
         {children}
       </ark.div>
     );
@@ -39,7 +35,7 @@ export const CardHeader = forwardRef<CardHeaderRef, CardHeaderProps>(
     return (
       <ark.div
         {...cardHeaderProps}
-        className={cx(CardHeaderRecipe(), cardHeaderProps.className)}
+        className={cx(cardHeader(), cardHeaderProps.className)}
         ref={ref}
       >
         {children}
@@ -58,7 +54,7 @@ export const CardTitle = forwardRef<CardTitleRef, CardTitleProps>(
     return (
       <ark.h3
         {...cardTitleProps}
-        className={cx(CardTitleRecipe(), cardTitleProps.className)}
+        className={cx(cardTitle(), cardTitleProps.className)}
         ref={ref}
       >
         {children}
@@ -79,7 +75,7 @@ export const CardDescription = forwardRef<
   return (
     <ark.p
       {...cardDescriptionProps}
-      className={cx(CardDescriptionRecipe(), cardDescriptionProps.className)}
+      className={cx(cardDescription(), cardDescriptionProps.className)}
       ref={ref}
     >
       {children}
@@ -97,7 +93,7 @@ export const CardBody = forwardRef<CardBodyRef, CardBodyProps>(
     return (
       <ark.div
         {...cardBodyProps}
-        className={cx(CardBodyRecipe(), cardBodyProps.className)}
+        className={cx(cardBody(), cardBodyProps.className)}
         ref={ref}
       >
         {children}
@@ -116,7 +112,7 @@ export const CardFooter = forwardRef<CardFooterRef, CardFooterProps>(
     return (
       <ark.div
         {...cardFooterProps}
-        className={cx(CardFooterRecipe(), cardFooterProps.className)}
+        className={cx(cardFooter(), cardFooterProps.className)}
         ref={ref}
       >
         {children}
