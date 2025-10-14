@@ -50,13 +50,13 @@
     "clean": "del-cli dist/ src/styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.53.7",
+    "@pandacss/dev": "^1.4.2",
     "@sandwich-ui/eslint-config": "workspace:*",
-    "del-cli": "^6.0.0",
+    "del-cli": "^7.0.0",
     "eslint": "^9.37.0",
-    "rollup-plugin-visualizer": "^5.14.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.6",
+    "rollup-plugin-visualizer": "^6.0.4",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.9",
     "vite-plugin-dts": "^4.5.4",
     "vite-tsconfig-paths": "^5.1.4"
   }

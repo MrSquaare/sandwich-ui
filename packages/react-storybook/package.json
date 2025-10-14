@@ -20,26 +20,22 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.53.7",
+    "@pandacss/dev": "^1.4.2",
     "@sandwich-ui/eslint-config": "workspace:*",
     "@sandwich-ui/eslint-config-react": "workspace:*",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/addon-themes": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/react-vite": "^8.6.14",
-    "@storybook/test": "^8.6.14",
+    "@storybook/addon-docs": "^9.1.10",
+    "@storybook/addon-links": "^9.1.10",
+    "@storybook/addon-themes": "^9.1.10",
+    "@storybook/react-vite": "^9.1.10",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^4.7.0",
-    "del-cli": "^6.0.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "del-cli": "^7.0.0",
     "eslint": "^9.37.0",
-    "eslint-plugin-storybook": "^0.12.0",
+    "eslint-plugin-storybook": "^9.1.10",
     "postcss": "^8.5.6",
-    "storybook": "^8.6.14",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.6"
+    "storybook": "^9.1.10",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.9"
   }
 }
