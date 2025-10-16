@@ -1,12 +1,12 @@
 import "./preview.css";
 
 import { withThemeByClassName } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react-vite";
 
 const preview: Preview = {
   parameters: {
     backgrounds: {
-      disable: true,
+      disabled: true,
     },
     controls: {
       matchers: {

@@ -25,7 +25,7 @@
     "clean": "del-cli dist/ node_modules/.cache/"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.5.0",
+    "@ark-ui/react": "^5.26.1",
     "@sandwich-ui/core": "workspace:*"
   },
   "peerDependencies": {
@@ -33,17 +33,17 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.53.3",
+    "@pandacss/dev": "^1.4.2",
     "@sandwich-ui/eslint-config": "workspace:*",
     "@sandwich-ui/eslint-config-react": "workspace:*",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.24.0",
-    "del-cli": "^6.0.0",
-    "rollup-plugin-visualizer": "^5.14.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.2.6",
-    "vite-plugin-dts": "^4.5.3"
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "del-cli": "^7.0.0",
+    "eslint": "^9.37.0",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.10",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
