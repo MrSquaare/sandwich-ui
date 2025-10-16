@@ -25,7 +25,7 @@
     "clean": "del-cli dist/ node_modules/.cache/"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.26.0",
+    "@ark-ui/react": "^5.26.1",
     "@sandwich-ui/core": "workspace:*"
   },
   "peerDependencies": {
@@ -41,9 +41,9 @@
     "@vitejs/plugin-react": "^5.0.4",
     "del-cli": "^7.0.0",
     "eslint": "^9.37.0",
-    "rollup-plugin-visualizer": "^6.0.4",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.9.3",
-    "vite": "^7.1.9",
+    "vite": "^7.1.10",
     "vite-plugin-dts": "^4.5.4"
   }
 }
