@@ -1,12 +1,12 @@
-name: "@sandwich-ui/react Pull Request"
+name: "@sandwich-ui/core Pull Request"
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - ".github/workflows/react-pull-request.yml"
-      - "packages/react/**"
+      - ".github/workflows/core-pull-request.yml"
+      - "packages/core/**"
 
 jobs:
   checks:
@@ -20,7 +20,7 @@ jobs:
         uses: ./.github/actions/setup-env
 
       - name: Build
-        run: pnpm build --filter @sandwich-ui/react
+        run: pnpm build --filter @sandwich-ui/core
 
       - name: Check
-        run: pnpm check --filter @sandwich-ui/react
+        run: pnpm check --filter @sandwich-ui/core

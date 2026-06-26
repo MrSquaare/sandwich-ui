@@ -9,20 +9,9 @@ on:
       - "apps/docs/**"
 
 jobs:
-  setup:
+  checks:
     runs-on: ubuntu-latest
-    name: Setup
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Setup environment
-        uses: ./.github/actions/setup-env
-
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    name: Build
+    name: Checks
 
     steps:
       - uses: actions/checkout@v7
@@ -32,17 +21,6 @@ jobs:
 
       - name: Build
         run: pnpm build --filter @sandwich-ui/docs
-
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    name: Analyze
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Setup environment
-        uses: ./.github/actions/setup-env
 
       - name: Check
         run: pnpm check --filter @sandwich-ui/docs
