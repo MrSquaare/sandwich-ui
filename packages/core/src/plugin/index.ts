@@ -39,7 +39,7 @@ export default definePlugin({
 
       const createEntry = (dir: string) => ({
         import: `./${dir}/index${jsExt}`,
-        require: `./${dir}/index${jsExt}`,
+        ...(isJS ? { require: `./${dir}/index${jsExt}` } : {}),
         types: `./${dir}/index${dtsExt}`,
       });
 
