@@ -10,7 +10,11 @@
     },
     {
       "name": "docs",
-      "path": "./docs",
+      "path": "./apps/docs",
+    },
+    {
+      "name": "react-storybook",
+      "path": "./apps/react-storybook",
     },
   ],
 }
