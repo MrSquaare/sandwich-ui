@@ -2,7 +2,7 @@ import { definePreset } from "@pandacss/dev";
 
 import { globalCss } from "./global-css";
 import { keyframes } from "./keyframes";
-import { recipes } from "./recipes";
+import { recipes, slotRecipes } from "./recipes";
 import { semanticTokens, tokens } from "./tokens";
 
 const preset = definePreset({
@@ -13,6 +13,7 @@ const preset = definePreset({
       keyframes,
       recipes,
       semanticTokens,
+      slotRecipes,
       tokens,
     },
   },
