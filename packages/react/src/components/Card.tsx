@@ -1,4 +1,4 @@
-import type { ComponentRef, ComponentType } from "react";
+import type { ComponentProps, ComponentRef } from "react";
 
 import { ark } from "@ark-ui/react";
 import { card } from "@sandwich-ui/styled-system/recipes";
@@ -12,7 +12,7 @@ export const Card = cardFactory.createProviderComponent(
   "root",
   "Card",
 );
-export type CardProps = ComponentType<typeof Card>;
+export type CardProps = ComponentProps<typeof Card>;
 export type CardRef = ComponentRef<typeof Card>;
 
 export const CardSection = cardFactory.createConsumerComponent(
@@ -20,7 +20,7 @@ export const CardSection = cardFactory.createConsumerComponent(
   "section",
   "CardSection",
 );
-export type CardSectionProps = ComponentType<typeof CardSection>;
+export type CardSectionProps = ComponentProps<typeof CardSection>;
 export type CardSectionRef = ComponentRef<typeof CardSection>;
 
 export const CardSeparator = cardFactory.createConsumerComponent(
@@ -28,7 +28,7 @@ export const CardSeparator = cardFactory.createConsumerComponent(
   "separator",
   "CardSeparator",
 );
-export type CardSeparatorProps = ComponentType<typeof CardSeparator>;
+export type CardSeparatorProps = ComponentProps<typeof CardSeparator>;
 export type CardSeparatorRef = ComponentRef<typeof CardSeparator>;
 
 export const CardTitle = cardFactory.createConsumerComponent(
@@ -36,7 +36,7 @@ export const CardTitle = cardFactory.createConsumerComponent(
   "title",
   "CardTitle",
 );
-export type CardTitleProps = ComponentType<typeof CardTitle>;
+export type CardTitleProps = ComponentProps<typeof CardTitle>;
 export type CardTitleRef = ComponentRef<typeof CardTitle>;
 
 export const CardDescription = cardFactory.createConsumerComponent(
@@ -44,5 +44,5 @@ export const CardDescription = cardFactory.createConsumerComponent(
   "description",
   "CardDescription",
 );
-export type CardDescriptionProps = ComponentType<typeof CardDescription>;
+export type CardDescriptionProps = ComponentProps<typeof CardDescription>;
 export type CardDescriptionRef = ComponentRef<typeof CardDescription>;
