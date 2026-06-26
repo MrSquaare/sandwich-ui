@@ -54,6 +54,7 @@ export const Default: Story = {
       <NavigationList position={"right"}>
         <Menu>
           <MenuTrigger
+            aria-label={"Open user menu"}
             className={css({
               alignItems: "center",
               alignSelf: "stretch",
@@ -104,6 +105,7 @@ export const CenteredLinks: Story = {
       <NavigationList position={"right"}>
         <Menu>
           <MenuTrigger
+            aria-label={"Open user menu"}
             className={css({
               alignItems: "center",
               alignSelf: "stretch",
