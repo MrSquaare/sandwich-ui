@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { SVGProps } from "react";
 
 import {
   Checkbox,
@@ -9,7 +10,7 @@ import {
 } from "@sandwich-ui/react";
 import { checkbox } from "@sandwich-ui/styled-system/recipes";
 
-const CheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill={"none"}
     stroke={"currentColor"}
@@ -21,7 +22,7 @@ const CheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const MinusIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const MinusIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     fill={"none"}
     stroke={"currentColor"}
