@@ -50,8 +50,8 @@ jobs:
       - name: Setup environment
         uses: ./.github/actions/setup-env
 
-      - name: Lint
-        run: pnpm lint --filter @sandwich-ui/docs
+      - name: Check
+        run: pnpm check --filter @sandwich-ui/docs
 
   docker:
     runs-on: ubuntu-latest
