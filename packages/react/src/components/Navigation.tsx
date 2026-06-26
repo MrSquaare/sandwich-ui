@@ -29,7 +29,7 @@ export type NavigationListProps = ComponentProps<typeof NavigationList>;
 export type NavigationListRef = ComponentRef<typeof NavigationList>;
 
 export const NavigationBrand = navigationListFactory.createConsumerComponent(
-  ark.div,
+  ark.li,
   "brand",
   "NavigationBrand",
 );
