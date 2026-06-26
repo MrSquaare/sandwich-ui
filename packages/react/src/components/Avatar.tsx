@@ -15,11 +15,13 @@ export const Avatar = avatarFactory.createProviderComponent(
 export type AvatarProps = ComponentProps<typeof Avatar>;
 export type AvatarRef = ComponentRef<typeof Avatar>;
 
-export const AvatarImage = ArkAvatar.AvatarImage;
+export const AvatarImage = avatarFactory.createConsumerComponent(
+  ArkAvatar.AvatarImage,
+  "image",
+  "AvatarImage",
+);
 export type AvatarImageProps = ComponentProps<typeof AvatarImage>;
 export type AvatarImageRef = ComponentRef<typeof AvatarImage>;
-
-AvatarImage.displayName = "AvatarImage";
 
 export const AvatarFallback = avatarFactory.createConsumerComponent(
   ArkAvatar.AvatarFallback,

@@ -13,6 +13,11 @@ export const avatarRecipe = defineSlotRecipe({
       textTransform: "uppercase",
       w: "full",
     },
+    image: {
+      h: "full",
+      objectFit: "cover",
+      w: "full",
+    },
     root: {
       bg: "primary",
       border: "2px solid {colors.border}",
@@ -24,7 +29,7 @@ export const avatarRecipe = defineSlotRecipe({
   defaultVariants: {
     size: "md",
   },
-  slots: ["root", "fallback"],
+  slots: ["root", "fallback", "image"],
   variants: {
     size: {
       lg: {
