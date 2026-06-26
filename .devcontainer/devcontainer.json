@@ -1,7 +1,7 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers-contrib/features/act:1": {}
+    "ghcr.io/devcontainers/features/node:2": {},
+    "ghcr.io/devcontainers-extra/features/act:1": {}
   }
 }

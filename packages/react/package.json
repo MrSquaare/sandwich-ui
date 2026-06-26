@@ -7,9 +7,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
@@ -17,33 +16,38 @@
   ],
   "scripts": {
     "predev": "panda codegen",
-    "dev": "vite build --watch",
+    "dev:codegen": "panda codegen --watch",
+    "dev:dist": "tsdown --watch",
+    "dev": "conc npm:dev:codegen npm:dev:dist",
     "prebuild": "del-cli dist/ && panda codegen",
-    "build": "tsc && vite build && panda ship -o dist/panda.buildinfo.json",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "clean": "del-cli dist/ node_modules/.cache/"
+    "build": "tsdown",
+    "check": "eslint . && prettier --check .",
+    "check:fix": "eslint . --fix && prettier --write .",
+    "clean": "del-cli dist/ styled-system/ node_modules/.cache/"
   },
   "dependencies": {
-    "@ark-ui/react": "^5.26.1",
-    "@sandwich-ui/core": "workspace:*"
+    "@ark-ui/react": "^5.37.2"
   },
   "peerDependencies": {
+    "@sandwich-ui/core": "workspace:*",
+    "@sandwich-ui/styled-system": "*",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.4.2",
+    "@pandacss/dev": "^1.11.3",
+    "@sandwich-ui/core": "workspace:*",
     "@sandwich-ui/eslint-config": "workspace:*",
     "@sandwich-ui/eslint-config-react": "workspace:*",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "@vitejs/plugin-react": "^5.0.4",
+    "@sandwich-ui/styled-system": "./styled-system",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "concurrently": "^10.0.3",
     "del-cli": "^7.0.0",
-    "eslint": "^9.37.0",
-    "rollup-plugin-visualizer": "^6.0.5",
-    "typescript": "~5.9.3",
-    "vite": "^7.1.10",
-    "vite-plugin-dts": "^4.5.4"
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.4",
+    "rollup-plugin-visualizer": "^7.0.1",
+    "tsdown": "^0.22.3",
+    "typescript": "~6.0.3"
   }
 }

@@ -24,8 +24,8 @@ dist-ssr
 *.sw?
 
 ## Panda
-src/styled-system
-src/styled-system-studio
+styled-system
+styled-system-studio
 
 # rollup-plugin-vizualizer
 stats.html

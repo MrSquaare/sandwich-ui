@@ -6,58 +6,42 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    "./css": {
-      "types": "./dist/styled-system/css/index.d.ts",
-      "require": "./dist/styled-system/css/index.mjs",
-      "import": "./dist/styled-system/css/index.mjs"
-    },
-    "./tokens": {
-      "types": "./dist/styled-system/tokens/index.d.ts",
-      "require": "./dist/styled-system/tokens/index.mjs",
-      "import": "./dist/styled-system/tokens/index.mjs"
-    },
-    "./types": {
-      "types": "./dist/styled-system/types/index.d.ts",
-      "require": "./dist/styled-system/types/index.mjs",
-      "import": "./dist/styled-system/types/index.mjs"
-    },
-    "./patterns": {
-      "types": "./dist/styled-system/patterns/index.d.ts",
-      "require": "./dist/styled-system/patterns/index.mjs",
-      "import": "./dist/styled-system/patterns/index.mjs"
-    },
     "./preset": {
-      "types": "./dist/preset/index.d.ts",
       "require": "./dist/preset/index.cjs",
-      "import": "./dist/preset/index.js"
+      "import": "./dist/preset/index.mjs"
     },
-    "./recipes": {
-      "types": "./dist/recipes/index.d.ts",
-      "require": "./dist/recipes/index.cjs",
-      "import": "./dist/recipes/index.js"
-    }
+    "./plugin": {
+      "require": "./dist/plugin/index.cjs",
+      "import": "./dist/plugin/index.mjs"
+    },
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "predev": "panda codegen",
-    "dev": "vite build --watch",
+    "dev:codegen": "panda codegen --watch",
+    "dev:dist": "tsdown --watch --no-clean",
+    "dev:css": "panda cssgen -o dist/style.css --watch",
+    "dev": "conc npm:dev:codegen npm:dev:dist npm:dev:css",
     "prebuild": "del-cli dist/ && panda codegen",
-    "build": "tsc && vite build && panda ship -o dist/panda.buildinfo.json",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "clean": "del-cli dist/ src/styled-system/ node_modules/.cache/"
+    "build": "tsdown && panda cssgen -o dist/style.css",
+    "check": "eslint . && prettier --check .",
+    "check:fix": "eslint . --fix && prettier --write .",
+    "clean": "del-cli dist/ styled-system/ node_modules/.cache/"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.4.2",
+    "@pandacss/dev": "^1.11.3",
+    "@pandacss/types": "^1.11.3",
     "@sandwich-ui/eslint-config": "workspace:*",
+    "@types/node": "^25.9.4",
+    "concurrently": "^10.0.3",
     "del-cli": "^7.0.0",
-    "eslint": "^9.37.0",
-    "rollup-plugin-visualizer": "^6.0.5",
-    "typescript": "~5.9.3",
-    "vite": "^7.1.10",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-tsconfig-paths": "^5.1.4"
+    "eslint": "^9.39.4",
+    "prettier": "^3.8.4",
+    "rollup-plugin-visualizer": "^7.0.1",
+    "tsdown": "^0.22.3",
+    "typescript": "~6.0.3"
   }
 }

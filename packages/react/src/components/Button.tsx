@@ -1,33 +1,10 @@
+import type { ComponentProps, ComponentRef } from "react";
+
 import { ark } from "@ark-ui/react";
-import { cx } from "@sandwich-ui/core/css";
-import {
-  ButtonRecipe,
-  ButtonSize,
-  ButtonVariant,
-} from "@sandwich-ui/core/recipes";
-import { ComponentRef, forwardRef } from "react";
+import { button } from "@sandwich-ui/styled-system/recipes";
 
-import { ExtendedComponentProps } from "../utilities/react";
+import { createRecipeComponent } from "../utilities/panda";
 
-export type ButtonProps = ExtendedComponentProps<
-  typeof ark.button,
-  {
-    size?: ButtonSize;
-    variant?: ButtonVariant;
-  }
->;
-export type ButtonRef = ComponentRef<typeof ark.button>;
-
-export const Button = forwardRef<ButtonRef, ButtonProps>(
-  ({ size, variant, ...buttonProps }, ref) => {
-    return (
-      <ark.button
-        {...buttonProps}
-        className={cx(ButtonRecipe({ size, variant }), buttonProps.className)}
-        ref={ref}
-      />
-    );
-  },
-);
-
-Button.displayName = "Button";
+export const Button = createRecipeComponent(button, ark.button, "Button");
+export type ButtonProps = ComponentProps<typeof Button>;
+export type ButtonRef = ComponentRef<typeof Button>;

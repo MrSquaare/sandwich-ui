@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "@sandwich-ui/docs",
+  "version": "0.2.6",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "eslint . && prettier --check .",
+    "check:fix": "eslint . --fix && prettier --write .",
+    "clean": "del-cli dist/ .astro/"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/starlight": "^0.41.1",
+    "astro": "^7.0.2",
+    "sharp": "^0.34.5",
+    "typescript": "~6.0.3"
+  },
+  "devDependencies": {
+    "@sandwich-ui/eslint-config": "workspace:*",
+    "del-cli": "^7.0.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-astro": "^1.7.0",
+    "prettier": "^3.8.4",
+    "vite": "^8.1.0"
+  }
+}

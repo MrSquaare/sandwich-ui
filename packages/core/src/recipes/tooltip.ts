@@ -1,23 +1,23 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineSlotRecipe } from "@pandacss/dev";
 
-export const TooltipContentRecipe = cva({
+export const tooltipRecipe = defineSlotRecipe({
   base: {
-    bg: { base: "white", _dark: "black" },
-    color: { base: "black", _dark: "white" },
-    border: "1px solid",
-    borderColor: { base: "neutral.200", _dark: "neutral.800" },
-    borderRadius: "md",
-    fontSize: "sm",
-    px: 3,
-    py: 1.5,
-    zIndex: 50,
-    animation: "popoverIn 0.2s ease",
-    "&[data-state='closed']": {
-      animation: "popoverOut 0.2s ease",
+    content: {
+      "&[data-state='closed']": {
+        animation: "popoverOut 0.2s ease",
+      },
+      animation: "popoverIn 0.2s ease",
+      bg: "bg.inverted",
+      border: "2px solid {colors.bg.inverted}",
+      color: "text.inverted",
+      px: 3,
+      py: 1.5,
+      zIndex: "tooltip",
     },
+    positioner: {},
+    root: {},
+    trigger: {},
   },
+  className: "tooltip",
+  slots: ["root", "trigger", "positioner", "content"],
 });
-
-export type TooltipContentRecipeVariant = RecipeVariant<
-  typeof TooltipContentRecipe
->;

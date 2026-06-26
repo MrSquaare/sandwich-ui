@@ -1,47 +1,76 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const BadgeRecipe = cva({
+export const badgeRecipe = defineRecipe({
   base: {
+    alignItems: "center",
+    border: "2px solid {colors.border}",
     display: "inline-flex",
-    border: "1px solid transparent",
-    borderRadius: "full",
+    fontWeight: "800",
+    justifyContent: "center",
+    lineHeight: 1,
+    textTransform: "uppercase",
+  },
+  className: "badge",
+  defaultVariants: {
+    color: "primary",
+    size: "md",
+    type: "filled",
   },
   variants: {
+    color: {
+      danger: {
+        "--color": "colors.danger",
+        "--text": "colors.white",
+      },
+      info: {
+        "--color": "colors.info",
+        "--text": "colors.black",
+      },
+      primary: {
+        "--color": "colors.primary",
+        "--text": "colors.white",
+      },
+      secondary: {
+        "--color": "colors.secondary",
+        "--text": { _dark: "colors.black", base: "colors.white" },
+      },
+      success: {
+        "--color": "colors.success",
+        "--text": "colors.white",
+      },
+      warning: {
+        "--color": "colors.warning",
+        "--text": "colors.black",
+      },
+    },
     size: {
-      sm: {
-        fontSize: "xs",
-        px: 1,
-        py: 0.25,
+      lg: {
+        fontSize: "xl",
+        px: 3,
+        py: 1.5,
       },
       md: {
         fontSize: "base",
         px: 2,
-        py: 0.5,
-      },
-      lg: {
-        fontSize: "lg",
-        px: 3,
         py: 1,
       },
+      sm: {
+        fontSize: "xs",
+        px: 1,
+        py: 0.5,
+      },
     },
-    variant: {
+    type: {
       filled: {
-        bg: { base: "black", _dark: "white" },
-        color: { base: "white", _dark: "black" },
+        bg: "var(--color)",
+        borderColor: "border",
+        color: "var(--text)",
       },
       outlined: {
-        bg: { base: "white", _dark: "black" },
-        color: { base: "black", _dark: "white" },
-        borderColor: { base: "neutral.200", _dark: "neutral.800" },
+        bg: "transparent",
+        borderColor: "var(--color)",
+        color: "var(--color)",
       },
     },
   },
-  defaultVariants: {
-    size: "md",
-    variant: "filled",
-  },
 });
-
-export type BadgeRecipeVariant = RecipeVariant<typeof BadgeRecipe>;
-export type BadgeVariant = BadgeRecipeVariant["variant"];
-export type BadgeSize = BadgeRecipeVariant["size"];

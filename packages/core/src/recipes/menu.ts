@@ -1,38 +1,41 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineSlotRecipe } from "@pandacss/dev";
 
-export const MenuContentRecipe = cva({
+export const menuRecipe = defineSlotRecipe({
   base: {
-    bg: { base: "white", _dark: "black" },
-    color: { base: "black", _dark: "white" },
-    border: "1px solid",
-    borderColor: { base: "neutral.200", _dark: "neutral.800" },
-    borderRadius: "md",
-    fontSize: "sm",
-    minW: "8rem",
-    p: 1,
-    zIndex: 50,
-    animation: "popoverIn 0.2s ease",
-    "&[data-state='closed']": {
-      animation: "popoverOut 0.2s ease",
+    content: {
+      "&[data-state='closed']": {
+        animation: "popoverOut 0.2s ease",
+      },
+      animation: "popoverIn 0.2s ease",
+      bg: "surface",
+      border: "2px solid {colors.border}",
+      boxShadow: "medium",
+      minW: "8rem",
+      zIndex: "menu",
+    },
+    item: {
+      _hover: {
+        bg: "primary",
+        color: "white",
+      },
+      bg: "transparent",
+      cursor: "pointer",
+      fontSize: "sm",
+      fontWeight: "800",
+      m: "1",
+      p: "2",
+      textTransform: "uppercase",
+      transition: "background-color 0.1s, color 0.1s",
+    },
+    positioner: {},
+    root: {},
+    separator: {
+      borderTop: "2px solid {colors.border}",
+    },
+    trigger: {
+      cursor: "pointer",
     },
   },
+  className: "menu",
+  slots: ["root", "trigger", "positioner", "content", "item", "separator"],
 });
-
-export type MenuContentRecipeVariant = RecipeVariant<typeof MenuContentRecipe>;
-
-export const MenuItemRecipe = cva({
-  base: {
-    color: { base: "black", _dark: "white" },
-    fontSize: "sm",
-    borderRadius: "md",
-    px: 2,
-    py: 1.5,
-    cursor: "pointer",
-    transition: "colors",
-    _hover: {
-      bg: { base: "neutral.100", _dark: "neutral.900" },
-    },
-  },
-});
-
-export type MenuItemRecipeVariant = RecipeVariant<typeof MenuItemRecipe>;

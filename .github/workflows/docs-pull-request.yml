@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - ".github/workflows/docs-pull-request.yml"
-      - "docs/**"
+      - "apps/docs/**"
 
 jobs:
   setup:
@@ -70,7 +70,7 @@ jobs:
         with:
           context: .
           push: false
-          file: ./docs/Dockerfile
+          file: ./apps/docs/Dockerfile
           tags: image:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

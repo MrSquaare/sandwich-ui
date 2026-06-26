@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - ".github/workflows/react-storybook-pull-request.yml"
-      - "packages/react-storybook/**"
+      - "apps/react-storybook/**"
       - "packages/react/**"
 
 jobs:
@@ -71,7 +71,7 @@ jobs:
         with:
           context: .
           push: false
-          file: ./packages/react-storybook/Dockerfile
+          file: ./apps/react-storybook/Dockerfile
           tags: image:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max

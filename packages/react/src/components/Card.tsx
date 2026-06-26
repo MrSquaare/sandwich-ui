@@ -1,128 +1,48 @@
+import type { ComponentRef, ComponentType } from "react";
+
 import { ark } from "@ark-ui/react";
-import { cx } from "@sandwich-ui/core/css";
-import {
-  CardBodyRecipe,
-  CardDescriptionRecipe,
-  CardFooterRecipe,
-  CardHeaderRecipe,
-  CardRecipe,
-  CardTitleRecipe,
-} from "@sandwich-ui/core/recipes";
-import { ComponentRef, forwardRef } from "react";
+import { card } from "@sandwich-ui/styled-system/recipes";
 
-import { ExtendedComponentProps } from "../utilities/react";
+import { createSlotRecipeComponentFactory } from "../utilities/panda";
 
-export type CardProps = ExtendedComponentProps<typeof ark.div>;
-export type CardRef = ComponentRef<typeof ark.div>;
+const cardFactory = createSlotRecipeComponentFactory(card);
 
-export const Card = forwardRef<CardRef, CardProps>(
-  ({ children, ...props }, ref) => {
-    return (
-      <ark.div
-        {...props}
-        className={cx(CardRecipe(), props.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.div>
-    );
-  },
+export const Card = cardFactory.createProviderComponent(
+  ark.div,
+  "root",
+  "Card",
 );
+export type CardProps = ComponentType<typeof Card>;
+export type CardRef = ComponentRef<typeof Card>;
 
-Card.displayName = "Card";
-
-export type CardHeaderProps = ExtendedComponentProps<typeof ark.div>;
-export type CardHeaderRef = ComponentRef<typeof ark.div>;
-
-export const CardHeader = forwardRef<CardHeaderRef, CardHeaderProps>(
-  ({ children, ...cardHeaderProps }, ref) => {
-    return (
-      <ark.div
-        {...cardHeaderProps}
-        className={cx(CardHeaderRecipe(), cardHeaderProps.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.div>
-    );
-  },
+export const CardSection = cardFactory.createConsumerComponent(
+  ark.div,
+  "section",
+  "CardSection",
 );
+export type CardSectionProps = ComponentType<typeof CardSection>;
+export type CardSectionRef = ComponentRef<typeof CardSection>;
 
-CardHeader.displayName = "CardHeader";
-
-export type CardTitleProps = ExtendedComponentProps<typeof ark.h3>;
-export type CardTitleRef = ComponentRef<typeof ark.h3>;
-
-export const CardTitle = forwardRef<CardTitleRef, CardTitleProps>(
-  ({ children, ...cardTitleProps }, ref) => {
-    return (
-      <ark.h3
-        {...cardTitleProps}
-        className={cx(CardTitleRecipe(), cardTitleProps.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.h3>
-    );
-  },
+export const CardSeparator = cardFactory.createConsumerComponent(
+  ark.hr,
+  "separator",
+  "CardSeparator",
 );
+export type CardSeparatorProps = ComponentType<typeof CardSeparator>;
+export type CardSeparatorRef = ComponentRef<typeof CardSeparator>;
 
-CardTitle.displayName = "CardTitle";
-
-export type CardDescriptionProps = ExtendedComponentProps<typeof ark.p>;
-export type CardDescriptionRef = ComponentRef<typeof ark.p>;
-
-export const CardDescription = forwardRef<
-  CardDescriptionRef,
-  CardDescriptionProps
->(({ children, ...cardDescriptionProps }, ref) => {
-  return (
-    <ark.p
-      {...cardDescriptionProps}
-      className={cx(CardDescriptionRecipe(), cardDescriptionProps.className)}
-      ref={ref}
-    >
-      {children}
-    </ark.p>
-  );
-});
-
-CardDescription.displayName = "CardDescription";
-
-export type CardBodyProps = ExtendedComponentProps<typeof ark.div>;
-export type CardBodyRef = ComponentRef<typeof ark.div>;
-
-export const CardBody = forwardRef<CardBodyRef, CardBodyProps>(
-  ({ children, ...cardBodyProps }, ref) => {
-    return (
-      <ark.div
-        {...cardBodyProps}
-        className={cx(CardBodyRecipe(), cardBodyProps.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.div>
-    );
-  },
+export const CardTitle = cardFactory.createConsumerComponent(
+  ark.h3,
+  "title",
+  "CardTitle",
 );
+export type CardTitleProps = ComponentType<typeof CardTitle>;
+export type CardTitleRef = ComponentRef<typeof CardTitle>;
 
-CardBody.displayName = "CardBody";
-
-export type CardFooterProps = ExtendedComponentProps<typeof ark.div>;
-export type CardFooterRef = ComponentRef<typeof ark.div>;
-
-export const CardFooter = forwardRef<CardFooterRef, CardFooterProps>(
-  ({ children, ...cardFooterProps }, ref) => {
-    return (
-      <ark.div
-        {...cardFooterProps}
-        className={cx(CardFooterRecipe(), cardFooterProps.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.div>
-    );
-  },
+export const CardDescription = cardFactory.createConsumerComponent(
+  ark.p,
+  "description",
+  "CardDescription",
 );
-
-CardFooter.displayName = "CardFooter";
+export type CardDescriptionProps = ComponentType<typeof CardDescription>;
+export type CardDescriptionRef = ComponentRef<typeof CardDescription>;

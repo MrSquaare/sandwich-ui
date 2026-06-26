@@ -21,18 +21,18 @@ It is composed of multiple packages:
 
 - [Core library](packages/core)
 - [React library](packages/react)
-- [React storybook](packages/react-storybook)
-- [Docs](docs)
+- [React storybook](apps/react-storybook)
+- [Docs](apps/docs)
 
 ## Getting started
 
-- [Core library](docs/src/content/docs/core/getting-started.mdx)
-- [React library](docs/src/content/docs/react/getting-started.mdx)
+- [Core library](apps/docs/src/content/docs/core/getting-started.mdx)
+- [React library](apps/docs/src/content/docs/react/getting-started.mdx)
 
 ## Using
 
-- [Core library](docs/src/content/docs/core/using.mdx)
-- [React library](docs/src/content/docs/react/using.mdx)
+- [Core library](apps/docs/src/content/docs/core/using.mdx)
+- [React library](apps/docs/src/content/docs/react/using.mdx)
 
 ## Contributing
 
@@ -41,5 +41,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 ## License
 
-Distributed under the [ISC](https://choosealicense.com/licenses/isc/) License.
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 See [LICENSE](LICENSE) for more information.

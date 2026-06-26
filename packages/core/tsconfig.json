@@ -1,34 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
+    "outDir": "./dist",
+    "module": "esnext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
+    "target": "esnext",
+    "types": ["node"],
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
-
-    "paths": {
-      "@sandwich-ui/core/css": ["./src/styled-system/css"],
-      "@sandwich-ui/core/tokens": ["./src/styled-system/tokens"],
-      "@sandwich-ui/core/types": ["./src/styled-system/types"],
-      "@sandwich-ui/core/patterns": ["./src/styled-system/patterns"],
-      "@sandwich-ui/core/preset": ["./src/preset"],
-      "@sandwich-ui/core/recipes": ["./src/recipes"],
-    }
-  },
-  "include": ["src"],
-  "exclude": ["src/styled-system"]
+    "moduleDetection": "force",
+    "skipLibCheck": true
+  }
 }

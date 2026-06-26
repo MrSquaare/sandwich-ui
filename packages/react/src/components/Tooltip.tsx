@@ -1,41 +1,40 @@
+import type { ComponentProps, ComponentRef } from "react";
+
 import * as ArkTooltip from "@ark-ui/react/tooltip";
-import { cx } from "@sandwich-ui/core/css";
-import { TooltipContentRecipe } from "@sandwich-ui/core/recipes";
-import { ComponentRef, FC, forwardRef } from "react";
+import { tooltip } from "@sandwich-ui/styled-system/recipes";
 
-export type TooltipProps = ArkTooltip.TooltipRootProps;
-export type TooltipRef = ComponentRef<typeof ArkTooltip.TooltipRoot>;
+import { createSlotRecipeComponentFactory } from "../utilities/panda";
 
-export const Tooltip: FC<TooltipProps> = ArkTooltip.TooltipRoot;
+const tooltipFactory = createSlotRecipeComponentFactory(tooltip);
 
-Tooltip.displayName = "Tooltip";
+export const Tooltip = tooltipFactory.createProviderComponent(
+  ArkTooltip.TooltipRoot,
+  "root",
+  "Tooltip",
+);
+export type TooltipProps = ComponentProps<typeof Tooltip>;
+export type TooltipRef = ComponentRef<typeof Tooltip>;
 
-export type TooltipTriggerProps = ArkTooltip.TooltipTriggerProps;
-export type TooltipTriggerRef = ComponentRef<typeof ArkTooltip.TooltipTrigger>;
+export const TooltipTrigger = tooltipFactory.createConsumerComponent(
+  ArkTooltip.TooltipTrigger,
+  "trigger",
+  "TooltipTrigger",
+);
+export type TooltipTriggerProps = ComponentProps<typeof TooltipTrigger>;
+export type TooltipTriggerRef = ComponentRef<typeof TooltipTrigger>;
 
-export const TooltipTrigger: FC<TooltipTriggerProps> =
-  ArkTooltip.TooltipTrigger;
+export const TooltipPositioner = tooltipFactory.createConsumerComponent(
+  ArkTooltip.TooltipPositioner,
+  "positioner",
+  "TooltipPositioner",
+);
+export type TooltipPositionerProps = ComponentProps<typeof TooltipPositioner>;
+export type TooltipPositionerRef = ComponentRef<typeof TooltipPositioner>;
 
-TooltipTrigger.displayName = "TooltipTrigger";
-
-export type TooltipContentProps = ArkTooltip.TooltipContentProps;
-export type TooltipContentRef = ComponentRef<typeof ArkTooltip.TooltipContent>;
-
-export const TooltipContent = forwardRef<
-  TooltipContentRef,
-  TooltipContentProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <ArkTooltip.TooltipPositioner>
-      <ArkTooltip.TooltipContent
-        {...props}
-        className={cx(TooltipContentRecipe(), className)}
-        ref={ref}
-      >
-        {children}
-      </ArkTooltip.TooltipContent>
-    </ArkTooltip.TooltipPositioner>
-  );
-});
-
-TooltipContent.displayName = "TooltipContent";
+export const TooltipContent = tooltipFactory.createConsumerComponent(
+  ArkTooltip.TooltipContent,
+  "content",
+  "TooltipContent",
+);
+export type TooltipContentProps = ComponentProps<typeof TooltipContent>;
+export type TooltipContentRef = ComponentRef<typeof TooltipContent>;

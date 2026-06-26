@@ -1,55 +1,104 @@
-import { RecipeVariant, cva } from "@sandwich-ui/core/css";
+import { defineRecipe } from "@pandacss/dev";
 
-export const ButtonRecipe = cva({
+import {
+  shadowActiveEffectHelper,
+  shadowHoverEffectHelper,
+} from "../helpers/effects";
+import { shadowTokens } from "../preset/tokens";
+
+export const buttonRecipe = defineRecipe({
   base: {
-    display: "inline-flex",
-    border: "1px solid transparent",
-    borderRadius: "md",
+    alignItems: "center",
+    border: "2px solid {colors.border}",
     cursor: "pointer",
-    transition: "colors",
+    display: "inline-flex",
+    fontWeight: "800",
+    justifyContent: "center",
+    lineHeight: 1,
+    textTransform: "uppercase",
+  },
+  className: "button",
+  compoundVariants: [
+    {
+      css: {
+        ...shadowHoverEffectHelper,
+        ...shadowActiveEffectHelper,
+      },
+      variant: ["filled", "outlined"],
+    },
+    {
+      color: "secondary",
+      css: {
+        _hover: {
+          boxShadow: shadowTokens.bold,
+        },
+        borderColor: "primary",
+        boxShadow: shadowTokens.medium,
+        shadowColor: "primary",
+      },
+      variant: "filled",
+    },
+  ],
+  defaultVariants: {
+    color: "primary",
+    size: "md",
+    variant: "filled",
   },
   variants: {
+    color: {
+      danger: {
+        "--color": "colors.danger",
+        "--text": "colors.white",
+      },
+      info: {
+        "--color": "colors.info",
+        "--text": "colors.black",
+      },
+      primary: {
+        "--color": "colors.primary",
+        "--text": "colors.white",
+      },
+      secondary: {
+        "--color": "colors.secondary",
+        "--text": { _dark: "colors.black", base: "colors.white" },
+      },
+      success: {
+        "--color": "colors.success",
+        "--text": "colors.white",
+      },
+      warning: {
+        "--color": "colors.warning",
+        "--text": "colors.black",
+      },
+    },
     size: {
-      sm: {
-        fontSize: "xs",
-        px: 2,
-        py: 1,
+      lg: {
+        fontSize: "xl",
+        px: 10,
+        py: 4,
       },
       md: {
         fontSize: "base",
-        px: 4,
-        py: 2,
-      },
-      lg: {
-        fontSize: "lg",
-        px: 6,
+        px: 8,
         py: 3,
+      },
+      sm: {
+        fontSize: "xs",
+        px: 6,
+        py: 2,
       },
     },
     variant: {
       filled: {
-        bg: { base: "black", _dark: "white" },
-        color: { base: "white", _dark: "black" },
-        _hover: {
-          bg: { base: "neutral.800", _dark: "neutral.200" },
-        },
+        bg: "var(--color)",
+        borderColor: "border",
+        color: "var(--text)",
       },
       outlined: {
-        bg: { base: "white", _dark: "black" },
-        color: { base: "black", _dark: "white" },
-        borderColor: { base: "neutral.200", _dark: "neutral.800" },
-        _hover: {
-          bg: { base: "neutral.100", _dark: "neutral.900" },
-        },
+        bg: "transparent",
+        borderColor: "var(--color)",
+        color: "var(--color)",
       },
     },
   },
-  defaultVariants: {
-    size: "md",
-    variant: "filled",
-  },
 });
-
-export type ButtonRecipeVariant = RecipeVariant<typeof ButtonRecipe>;
-export type ButtonSize = ButtonRecipeVariant["size"];
-export type ButtonVariant = ButtonRecipeVariant["variant"];
