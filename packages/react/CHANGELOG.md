@@ -1,5 +1,16 @@
 # @sandwich-ui/react
 
+## 0.5.0
+
+### Minor Changes
+
+- [#30](https://github.com/MrSquaare/sandwich-ui/pull/30) [`a025445`](https://github.com/MrSquaare/sandwich-ui/commit/a025445652876d23c43cc7a4174204598592033f) Thanks [@MrSquaare](https://github.com/MrSquaare)! - The Cool Update
+
+### Patch Changes
+
+- Updated dependencies [[`a025445`](https://github.com/MrSquaare/sandwich-ui/commit/a025445652876d23c43cc7a4174204598592033f)]:
+  - @sandwich-ui/core@0.2.0
+
 ## 0.4.6
 
 ### Patch Changes
