@@ -9,7 +9,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`a025445`](https://github.com/MrSquaare/sandwich-ui/commit/a025445652876d23c43cc7a4174204598592033f)]:
-  - @sandwich-ui/react@1.0.0
+  - @sandwich-ui/react@0.5.0
 
 ## 0.2.6
 
