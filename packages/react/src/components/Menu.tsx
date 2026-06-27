@@ -1,76 +1,56 @@
+import type { ComponentProps, ComponentRef } from "react";
+
 import * as ArkMenu from "@ark-ui/react/menu";
-import { cva, cx } from "@sandwich-ui/core/css";
-import { MenuContentRecipe, MenuItemRecipe } from "@sandwich-ui/core/recipes";
-import { ComponentRef, FC, forwardRef } from "react";
+import { menu } from "@sandwich-ui/styled-system/recipes";
 
-export type MenuProps = ArkMenu.MenuRootProps;
-export type MenuRef = ComponentRef<typeof ArkMenu.MenuRoot>;
+import { createSlotRecipeComponentFactory } from "../utilities/panda";
 
-export const Menu: FC<MenuProps> = ArkMenu.MenuRoot;
+const menuFactory = createSlotRecipeComponentFactory(menu);
 
-Menu.displayName = "Menu";
-
-export const MenuTriggerRecipe = cva({
-  base: {
-    cursor: "pointer",
-  },
-});
-
-export type MenuTriggerProps = ArkMenu.MenuTriggerProps;
-export type MenuTriggerRef = ComponentRef<typeof ArkMenu.MenuTrigger>;
-
-export const MenuTrigger = forwardRef<MenuTriggerRef, MenuTriggerProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <ArkMenu.MenuTrigger
-        {...props}
-        className={cx(MenuTriggerRecipe(), className)}
-        ref={ref}
-      >
-        {children}
-      </ArkMenu.MenuTrigger>
-    );
-  },
+export const Menu = menuFactory.createProviderComponent(
+  ArkMenu.MenuRoot,
+  "root",
+  "Menu",
 );
+export type MenuProps = ComponentProps<typeof Menu>;
+export type MenuRef = ComponentRef<typeof Menu>;
 
-MenuTrigger.displayName = "MenuTrigger";
-
-export type MenuContentProps = ArkMenu.MenuContentProps;
-export type MenuContentRef = ComponentRef<typeof ArkMenu.MenuContent>;
-
-export const MenuContent = forwardRef<MenuContentRef, MenuContentProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <ArkMenu.MenuPositioner>
-        <ArkMenu.MenuContent
-          {...props}
-          className={cx(MenuContentRecipe(), className)}
-          ref={ref}
-        >
-          {children}
-        </ArkMenu.MenuContent>
-      </ArkMenu.MenuPositioner>
-    );
-  },
+export const MenuTrigger = menuFactory.createConsumerComponent(
+  ArkMenu.MenuTrigger,
+  "trigger",
+  "MenuTrigger",
 );
+export type MenuTriggerProps = ComponentProps<typeof MenuTrigger>;
+export type MenuTriggerRef = ComponentRef<typeof MenuTrigger>;
 
-MenuContent.displayName = "MenuContent";
-
-export type MenuItemProps = ArkMenu.MenuItemProps;
-export type MenuItemRef = ComponentRef<typeof ArkMenu.MenuItem>;
-
-export const MenuItem = forwardRef<MenuItemRef, MenuItemProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <ArkMenu.MenuItem
-        {...props}
-        className={cx(MenuItemRecipe(), className)}
-        ref={ref}
-      >
-        {children}
-      </ArkMenu.MenuItem>
-    );
-  },
+export const MenuPositioner = menuFactory.createConsumerComponent(
+  ArkMenu.MenuPositioner,
+  "positioner",
+  "MenuPositioner",
 );
+export type MenuPositionerProps = ComponentProps<typeof MenuPositioner>;
+export type MenuPositionerRef = ComponentRef<typeof MenuPositioner>;
 
-MenuItem.displayName = "MenuItem";
+export const MenuContent = menuFactory.createConsumerComponent(
+  ArkMenu.MenuContent,
+  "content",
+  "MenuContent",
+);
+export type MenuContentProps = ComponentProps<typeof MenuContent>;
+export type MenuContentRef = ComponentRef<typeof MenuContent>;
+
+export const MenuItem = menuFactory.createConsumerComponent(
+  ArkMenu.MenuItem,
+  "item",
+  "MenuItem",
+);
+export type MenuItemProps = ComponentProps<typeof MenuItem>;
+export type MenuItemRef = ComponentRef<typeof MenuItem>;
+
+export const MenuSeparator = menuFactory.createConsumerComponent(
+  ArkMenu.MenuSeparator,
+  "separator",
+  "MenuSeparator",
+);
+export type MenuSeparatorProps = ComponentProps<typeof MenuSeparator>;
+export type MenuSeparatorRef = ComponentRef<typeof MenuSeparator>;

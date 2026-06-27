@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "@sandwich-ui/react-storybook",
+  "version": "0.2.6",
+  "type": "module",
+  "scripts": {
+    "predev": "panda codegen",
+    "dev": "storybook dev -p 6006 --no-open",
+    "prebuild": "del-cli storybook-static/ && panda codegen",
+    "build": "storybook build",
+    "preview": "vite preview --outDir storybook-static/",
+    "check": "eslint . && prettier --check .",
+    "check:fix": "eslint . --fix && prettier --write .",
+    "clean": "del-cli storybook-static/ styled-system/ node_modules/.cache/"
+  },
+  "dependencies": {
+    "@sandwich-ui/react": "workspace:*",
+    "@sandwich-ui/styled-system": "./styled-system",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^1.11.3",
+    "@sandwich-ui/core": "workspace:*",
+    "@sandwich-ui/eslint-config": "workspace:*",
+    "@sandwich-ui/eslint-config-react": "workspace:*",
+    "@storybook/addon-a11y": "^10.4.6",
+    "@storybook/addon-docs": "^10.4.6",
+    "@storybook/addon-links": "^10.4.6",
+    "@storybook/addon-themes": "^10.4.6",
+    "@storybook/react-vite": "^10.4.6",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "del-cli": "^7.0.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-storybook": "^10.4.6",
+    "postcss": "^8.5.15",
+    "prettier": "^3.8.4",
+    "storybook": "^10.4.6",
+    "typescript": "~6.0.3",
+    "vite": "^8.1.0"
+  }
+}

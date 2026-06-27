@@ -1,16 +1,9 @@
 import config from "@sandwich-ui/eslint-config";
 import configReact from "@sandwich-ui/eslint-config-react";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default [
-  { ignores: ["dist"] },
-  ...config,
-  ...configReact,
-  /* {
-    rules: {
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
-    },
-  }, */
-];
+export default defineConfig(
+  globalIgnores(["dist", "styled-system"]),
+  config,
+  configReact,
+);

@@ -1,7 +1,7 @@
 import { ark } from "@ark-ui/react";
-import { ComponentRef, forwardRef } from "react";
+import { type ComponentRef, forwardRef } from "react";
 
-import { ExtendedComponentProps } from "../utilities/react";
+import type { ExtendedComponentProps } from "../utilities/react";
 
 export type AspectRatioProps = ExtendedComponentProps<
   typeof ark.div,
@@ -18,19 +18,19 @@ export const AspectRatio = forwardRef<AspectRatioRef, AspectRatioProps>(
         {...props}
         ref={ref}
         style={{
+          paddingBottom: `${100 / ratio}%`,
           position: "relative",
           width: "100%",
-          paddingBottom: `${100 / ratio}%`,
         }}
       >
         <ark.div
           asChild={asChild}
           style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
             bottom: 0,
             left: 0,
+            position: "absolute",
+            right: 0,
+            top: 0,
             ...style,
           }}
         >

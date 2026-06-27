@@ -1,35 +1,10 @@
+import type { ComponentProps, ComponentRef } from "react";
+
 import { ark } from "@ark-ui/react";
-import { cx } from "@sandwich-ui/core/css";
-import {
-  BadgeRecipe,
-  BadgeSize,
-  BadgeVariant,
-} from "@sandwich-ui/core/recipes";
-import { ComponentRef, forwardRef } from "react";
+import { badge } from "@sandwich-ui/styled-system/recipes";
 
-import { ExtendedComponentProps } from "../utilities/react";
+import { createRecipeComponent } from "../utilities/panda";
 
-export type BadgeProps = ExtendedComponentProps<
-  typeof ark.div,
-  {
-    size?: BadgeSize;
-    variant?: BadgeVariant;
-  }
->;
-export type BadgeRef = ComponentRef<typeof ark.div>;
-
-export const Badge = forwardRef<BadgeRef, BadgeProps>(
-  ({ children, size, variant, ...props }, ref) => {
-    return (
-      <ark.div
-        {...props}
-        className={cx(BadgeRecipe({ size, variant }), props.className)}
-        ref={ref}
-      >
-        {children}
-      </ark.div>
-    );
-  },
-);
-
-Badge.displayName = "Badge";
+export const Badge = createRecipeComponent(badge, ark.div, "Badge");
+export type BadgeProps = ComponentProps<typeof Badge>;
+export type BadgeRef = ComponentRef<typeof Badge>;

@@ -1,11 +1,4 @@
 import config from "@sandwich-ui/eslint-config";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-export default [
-  { ignores: ["dist", "src/styled-system"] },
-  ...config,
-  {
-    languageOptions: {
-      ecmaVersion: 2020,
-    },
-  },
-];
+export default defineConfig(globalIgnores(["dist", "styled-system"]), config);

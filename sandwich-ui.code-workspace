@@ -2,15 +2,19 @@
   "folders": [
     {
       "name": "root",
-      "path": "."
+      "path": ".",
     },
     {
       "name": "packages",
-      "path": "./packages"
+      "path": "./packages",
     },
     {
       "name": "docs",
-      "path": "./docs"
+      "path": "./apps/docs",
     },
-  ]
+    {
+      "name": "react-storybook",
+      "path": "./apps/react-storybook",
+    },
+  ],
 }

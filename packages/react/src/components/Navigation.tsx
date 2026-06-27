@@ -1,64 +1,56 @@
+import type { ComponentProps, ComponentRef } from "react";
+
 import { ark } from "@ark-ui/react";
-import { cx } from "@sandwich-ui/core/css";
+import { navigation, navigationList } from "@sandwich-ui/styled-system/recipes";
+
 import {
-  NavigationListRecipe,
-  NavigationRecipe,
-} from "@sandwich-ui/core/recipes";
-import { ComponentRef, forwardRef } from "react";
+  createRecipeComponent,
+  createSlotRecipeComponentFactory,
+} from "../utilities/panda";
 
-import { ExtendedComponentProps } from "../utilities/react";
-
-export type NavigationProps = ExtendedComponentProps<typeof ark.nav>;
-export type NavigationRef = ComponentRef<typeof ark.nav>;
-
-export const Navigation = forwardRef<NavigationRef, NavigationProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <ark.nav
-        {...props}
-        className={cx(NavigationRecipe(), className)}
-        ref={ref}
-      >
-        {children}
-      </ark.nav>
-    );
-  },
+export const Navigation = createRecipeComponent(
+  navigation,
+  ark.nav,
+  "Navigation",
 );
 
-Navigation.displayName = "Navigation";
+export type NavigationProps = ComponentProps<typeof Navigation>;
+export type NavigationRef = ComponentRef<typeof Navigation>;
 
-export type NavigationListProps = ExtendedComponentProps<typeof ark.ul>;
-export type NavigationListRef = ComponentRef<typeof ark.ul>;
+const navigationListFactory = createSlotRecipeComponentFactory(navigationList);
 
-export const NavigationList = forwardRef<
-  NavigationListRef,
-  NavigationListProps
->(({ children, className, ...props }, ref) => {
-  return (
-    <ark.ul
-      {...props}
-      className={cx(NavigationListRecipe(), className)}
-      ref={ref}
-    >
-      {children}
-    </ark.ul>
-  );
-});
+export const NavigationList = navigationListFactory.createProviderComponent(
+  ark.ul,
+  "list",
+  "NavigationList",
+);
 
-NavigationList.displayName = "NavigationList";
+export type NavigationListProps = ComponentProps<typeof NavigationList>;
+export type NavigationListRef = ComponentRef<typeof NavigationList>;
 
-export type NavigationItemProps = ExtendedComponentProps<typeof ark.li>;
-export type NavigationItemRef = ComponentRef<typeof ark.li>;
+export const NavigationBrand = navigationListFactory.createConsumerComponent(
+  ark.li,
+  "brand",
+  "NavigationBrand",
+);
 
-export const NavigationItem = forwardRef<
-  NavigationItemRef,
-  NavigationItemProps
->(({ children, ...props }, ref) => {
-  return (
-    <ark.li {...props} ref={ref}>
-      {children}
-    </ark.li>
-  );
-});
+export type NavigationBrandProps = ComponentProps<typeof NavigationBrand>;
+export type NavigationBrandRef = ComponentRef<typeof NavigationBrand>;
 
-NavigationItem.displayName = "NavigationItem";
+export const NavigationItem = navigationListFactory.createConsumerComponent(
+  ark.li,
+  "item",
+  "NavigationItem",
+);
+
+export type NavigationItemProps = ComponentProps<typeof NavigationItem>;
+export type NavigationItemRef = ComponentRef<typeof NavigationItem>;
+
+export const NavigationLink = navigationListFactory.createConsumerComponent(
+  ark.a,
+  "link",
+  "NavigationLink",
+);
+
+export type NavigationLinkProps = ComponentProps<typeof NavigationLink>;
+export type NavigationLinkRef = ComponentRef<typeof NavigationLink>;

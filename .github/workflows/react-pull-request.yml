@@ -4,32 +4,19 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - ".github/workflows/react-pull-request.yml"
-      - "packages/react/**"
+
+permissions:
+  contents: read
 
 jobs:
-  setup:
+  checks:
     runs-on: ubuntu-latest
-    name: Setup
+    name: Checks
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
-          fetch-depth: 0
-
-      - name: Setup environment
-        uses: ./.github/actions/setup-env
-
-  build:
-    needs: setup
-    runs-on: ubuntu-latest
-    name: Build
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup environment
         uses: ./.github/actions/setup-env
@@ -37,18 +24,5 @@ jobs:
       - name: Build
         run: pnpm build --filter @sandwich-ui/react
 
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    name: Analyze
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup environment
-        uses: ./.github/actions/setup-env
-
-      - name: Lint
-        run: pnpm lint --filter @sandwich-ui/react
+      - name: Check
+        run: pnpm check --filter @sandwich-ui/react
